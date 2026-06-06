@@ -1,4 +1,4 @@
-﻿import QuizAttempt from '../models/QuizAttempt.js';
+import QuizAttempt from '../models/QuizAttempt.js';
 import Question from '../models/Question.js';
 import User from '../models/User.js';
 import Settings from '../models/Settings.js';
@@ -163,7 +163,7 @@ const submitQuiz = asyncHandler(async (req, res, next) => {
     console.log(`PS grading complete. ${psCorrectCount} PS answer(s) marked correct.`);
   }
 
-  const totalQ     = attempt.questions.length || 25;
+  const totalQ     = attempt.questions.length || 300;
   const percentage = Math.round((correctAnswers / totalQ) * 100);
 
   attempt.questions         = results;

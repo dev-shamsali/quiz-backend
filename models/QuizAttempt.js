@@ -20,7 +20,7 @@ const quizAttemptSchema = new mongoose.Schema({
   },
   questions: [questionResultSchema],
   score: { type: Number, default: 0 },
-  totalQuestions: { type: Number, default: 25 },
+  totalQuestions: { type: Number, default: 300 },
   correctAnswers: { type: Number, default: 0 },
   percentage: { type: Number, default: 0 },
   grade: {

@@ -1,4 +1,4 @@
-﻿import Report from '../models/Report.js';
+import Report from '../models/Report.js';
 import QuizAttempt from '../models/QuizAttempt.js';
 import { generateQuizReport } from '../services/geminiService.js';
 import ApiError from '../utils/ApiError.js';
@@ -60,7 +60,7 @@ const generateReport = asyncHandler(async (req, res, next) => {
     studentName: req.user.name,
     percentage: attempt.percentage,
     correctAnswers: attempt.correctAnswers,
-    totalQuestions: attempt.totalQuestions || 25,
+    totalQuestions: attempt.totalQuestions || 300,
     breakdown: attempt.breakdown,
     categoryBreakdown: attempt.categoryBreakdown || [],
     timeTaken: attempt.timeTaken,

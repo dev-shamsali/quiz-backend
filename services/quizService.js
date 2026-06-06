@@ -1,16 +1,15 @@
 import Question from '../models/Question.js';
 
-// ── Section definitions (must mirror frontend SECTION_CONFIG) ─────────────
 export const SECTION_CONFIG = [
-  { id: 'react-next',  label: 'React.js + Next.js',                  categories: ['React.js', 'Next.js'],                               durationMinutes: 30, questionCount: 6  },
-  { id: 'node',        label: 'Node.js',                              categories: ['Node.js'],                                           durationMinutes: 30, questionCount: 5  },
-  { id: 'express',     label: 'Express.js',                           categories: ['Express.js'],                                        durationMinutes: 30, questionCount: 4  },
-  { id: 'mongodb',     label: 'MongoDB',                              categories: ['MongoDB'],                                           durationMinutes: 30, questionCount: 4  },
-  { id: 'auth-ps-dbg', label: 'Auth + Problem Solving + Debugging',  categories: ['Authentication & Security', 'Problem Solving', 'Debugging'], durationMinutes: 60, questionCount: 6 },
+  { id: 'react-next',  label: 'React.js + Next.js',                  categories: ['React.js', 'Next.js'],                               durationMinutes: 30, questionCount: 60  },
+  { id: 'node',        label: 'Node.js',                              categories: ['Node.js'],                                           durationMinutes: 30, questionCount: 60  },
+  { id: 'express',     label: 'Express.js',                           categories: ['Express.js'],                                        durationMinutes: 30, questionCount: 60  },
+  { id: 'mongodb',     label: 'MongoDB',                              categories: ['MongoDB'],                                           durationMinutes: 30, questionCount: 60  },
+  { id: 'auth-ps-dbg', label: 'Auth + Problem Solving + Debugging',  categories: ['Authentication & Security', 'Problem Solving', 'Debugging'], durationMinutes: 60, questionCount: 60 },
 ];
 
 export const TOTAL_DURATION_MINUTES = SECTION_CONFIG.reduce((s, c) => s + c.durationMinutes, 0); // 180
-export const TOTAL_QUESTIONS        = SECTION_CONFIG.reduce((s, c) => s + c.questionCount,   0); // 25
+export const TOTAL_QUESTIONS        = SECTION_CONFIG.reduce((s, c) => s + c.questionCount,   0); // 300
 
 const QUIZ_CONFIG   = { easy: 13, moderate: 7, hard: 5 };
 const PS_GUARANTEED = 3;
@@ -55,48 +54,30 @@ export const getRandomQuestions = async (excludeIds = []) => {
     });
   };
 
-  // Section 1: React.js + Next.js (6 total: 3 easy, 2 moderate, 1 hard)
-  // MUST NOT contain 'problem-solving' type questions
-  const s1Easy = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'easy', category: { $in: ['React.js', 'Next.js'] }, type: { $ne: 'problem-solving' } }, 3, currentSelectionIds);
-  const s1Mod  = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'moderate', category: { $in: ['React.js', 'Next.js'] }, type: { $ne: 'problem-solving' } }, 2, currentSelectionIds);
-  const s1Hard = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'hard', category: { $in: ['React.js', 'Next.js'] }, type: { $ne: 'problem-solving' } }, 1, currentSelectionIds);
-  addQuestions([...s1Easy, ...s1Mod, ...s1Hard], 0);
+  // Section 1: React.js + Next.js (30 React.js + 30 Next.js)
+  const s1React = await sampleQuestions({ _id: { $nin: excluded }, category: 'React.js', type: { $ne: 'problem-solving' } }, 30, currentSelectionIds);
+  const s1Next  = await sampleQuestions({ _id: { $nin: excluded }, category: 'Next.js', type: { $ne: 'problem-solving' } }, 30, currentSelectionIds);
+  addQuestions([...s1React, ...s1Next], 0);
 
-  // Section 2: Node.js (5 total: 3 easy, 1 moderate, 1 hard)
-  // MUST NOT contain 'problem-solving' type questions
-  const s2Easy = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'easy', category: 'Node.js', type: { $ne: 'problem-solving' } }, 3, currentSelectionIds);
-  const s2Mod  = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'moderate', category: 'Node.js', type: { $ne: 'problem-solving' } }, 1, currentSelectionIds);
-  const s2Hard = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'hard', category: 'Node.js', type: { $ne: 'problem-solving' } }, 1, currentSelectionIds);
-  addQuestions([...s2Easy, ...s2Mod, ...s2Hard], 1);
+  // Section 2: Node.js (60 Node.js)
+  const s2Node  = await sampleQuestions({ _id: { $nin: excluded }, category: 'Node.js', type: { $ne: 'problem-solving' } }, 60, currentSelectionIds);
+  addQuestions(s2Node, 1);
 
-  // Section 3: Express.js (4 total: 2 easy, 1 moderate, 1 hard)
-  // MUST NOT contain 'problem-solving' type questions
-  const s3Easy = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'easy', category: 'Express.js', type: { $ne: 'problem-solving' } }, 2, currentSelectionIds);
-  const s3Mod  = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'moderate', category: 'Express.js', type: { $ne: 'problem-solving' } }, 1, currentSelectionIds);
-  const s3Hard = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'hard', category: 'Express.js', type: { $ne: 'problem-solving' } }, 1, currentSelectionIds);
-  addQuestions([...s3Easy, ...s3Mod, ...s3Hard], 2);
+  // Section 3: Express.js (60 Express.js)
+  const s3Express = await sampleQuestions({ _id: { $nin: excluded }, category: 'Express.js', type: { $ne: 'problem-solving' } }, 60, currentSelectionIds);
+  addQuestions(s3Express, 2);
 
-  // Section 4: MongoDB (4 total: 2 easy, 1 moderate, 1 hard)
-  // MUST NOT contain 'problem-solving' type questions
-  const s4Easy = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'easy', category: 'MongoDB', type: { $ne: 'problem-solving' } }, 2, currentSelectionIds);
-  const s4Mod  = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'moderate', category: 'MongoDB', type: { $ne: 'problem-solving' } }, 1, currentSelectionIds);
-  const s4Hard = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'hard', category: 'MongoDB', type: { $ne: 'problem-solving' } }, 1, currentSelectionIds);
-  addQuestions([...s4Easy, ...s4Mod, ...s4Hard], 3);
+  // Section 4: MongoDB (60 MongoDB)
+  const s4Mongodb = await sampleQuestions({ _id: { $nin: excluded }, category: 'MongoDB', type: { $ne: 'problem-solving' } }, 60, currentSelectionIds);
+  addQuestions(s4Mongodb, 3);
 
-  // Section 5: Auth + PS + Debugging (6 total: 3 PS, 3 Auth/Dbg)
-  // Exactly 3 Problem Solving category questions (1 easy, 1 moderate, 1 hard)
-  const s5PsEasy = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'easy', category: 'Problem Solving' }, 1, currentSelectionIds);
-  const s5PsMod  = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'moderate', category: 'Problem Solving' }, 1, currentSelectionIds);
-  const s5PsHard = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'hard', category: 'Problem Solving' }, 1, currentSelectionIds);
-  
-  // Exactly 3 other questions from Auth & Debugging (2 easy, 1 moderate)
-  // MUST NOT contain 'problem-solving' type questions
-  const s5OtherEasy = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'easy', category: { $in: ['Authentication & Security', 'Debugging'] }, type: { $ne: 'problem-solving' } }, 2, currentSelectionIds);
-  const s5OtherMod  = await sampleQuestions({ _id: { $nin: excluded }, difficulty: 'moderate', category: { $in: ['Authentication & Security', 'Debugging'] }, type: { $ne: 'problem-solving' } }, 1, currentSelectionIds);
+  // Section 5: Auth + PS + Debugging (10 PS + 25 Debugging + 25 Authentication & Security)
+  const s5Ps    = await sampleQuestions({ _id: { $nin: excluded }, category: 'Problem Solving' }, 10, currentSelectionIds);
+  const s5Dbg   = await sampleQuestions({ _id: { $nin: excluded }, category: 'Debugging', type: { $ne: 'problem-solving' } }, 25, currentSelectionIds);
+  const s5Auth  = await sampleQuestions({ _id: { $nin: excluded }, category: 'Authentication & Security', type: { $ne: 'problem-solving' } }, 25, currentSelectionIds);
+  addQuestions([...s5Ps, ...s5Dbg, ...s5Auth], 4);
 
-  addQuestions([...s5PsEasy, ...s5PsMod, ...s5PsHard, ...s5OtherEasy, ...s5OtherMod], 4);
-
-  if (selectedQuestions.length < 25) {
+  if (selectedQuestions.length < 300) {
     throw new Error('Insufficient questions in the database. Please run the seed script.');
   }
 

@@ -1,4 +1,4 @@
-﻿import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 import { body, validationResult } from 'express-validator';
 import User from '../models/User.js';
@@ -54,6 +54,7 @@ const register = asyncHandler(async (req, res, next) => {
   const user = await User.create({ name, email, password, role: 'student' });
 
   // Send credentials via email (non-blocking)
+  console.log(`[DEV ONLY] Registered student ${email} with password: ${password}`);
   sendCredentials({ name, email, password }).catch((err) => {
     console.error('Failed to send credentials email:', err.message);
   });
