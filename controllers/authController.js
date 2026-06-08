@@ -6,7 +6,7 @@ import ApiError from '../utils/ApiError.js';
 import { sendResponse, asyncHandler } from '../utils/ApiResponse.js';
 import { sendCredentials } from '../services/emailService.js';
 import { generateAccessToken, generateRefreshToken, setRefreshTokenCookie, clearRefreshTokenCookie } from '../utils/tokenUtils.js';
-import ActivityLog from '../models/ActivityLog.js';
+import ActivityLog from '../models/Activitylog.js';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
