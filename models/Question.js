@@ -34,7 +34,7 @@ const questionSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['React.js', 'Next.js', 'Node.js', 'Express.js', 'MongoDB', 'Authentication & Security', 'Problem Solving', 'Debugging'],
+    enum: ['React.js', 'Next.js', 'Node.js', 'Express.js', 'MongoDB', 'Problem Solving', 'Logical Reasoning', 'IQ'],
   },
   technology: {
     type: String,

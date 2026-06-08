@@ -49,7 +49,7 @@ activityLogSchema.statics.pushEvent = function (sessionId, eventData) {
   return this.findOneAndUpdate(
     { sessionId },
     { $push: { events: { ...eventData, timestamp: new Date() } } },
-    { new: true }
+    { returnDocument: 'after' }
   );
 };
 
@@ -61,7 +61,7 @@ activityLogSchema.statics.closeSession = function (sessionId) {
       $set:  { logoutAt: new Date() },
       $push: { events: { event: 'logout', reason: 'Student logged out', timestamp: new Date() } },
     },
-    { new: true }
+    { returnDocument: 'after' }
   );
 };
 

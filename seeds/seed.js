@@ -1,4 +1,4 @@
-﻿import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 import dotenv from 'dotenv';
 
@@ -10,6 +10,13 @@ import mongoose from 'mongoose';
 import Question from '../models/Question.js';
 import User from '../models/User.js';
 import rawQuestions from './questions.js';
+import { readFileSync } from 'fs';
+
+const excelQuestions = JSON.parse(
+  readFileSync(resolve(__dirname, './excel_questions.json'), 'utf8')
+);
+
+const combinedQuestions = [...rawQuestions, ...excelQuestions];
 
 // ── Fix maps ──────────────────────────────────────────────────────────────
 const DIFFICULTY_MAP = {
@@ -20,15 +27,14 @@ const DIFFICULTY_MAP = {
 };
 
 const CATEGORY_MAP = {
-  'Authentication Security':   'Authentication & Security', // missing &
-  'Authentication & Security': 'Authentication & Security',
   'React.js':        'React.js',
   'Next.js':         'Next.js',
   'Node.js':         'Node.js',
   'Express.js':      'Express.js',
   'MongoDB':         'MongoDB',
   'Problem Solving': 'Problem Solving',
-  'Debugging':       'Debugging',
+  'Logical Reasoning': 'Logical Reasoning',
+  'IQ':              'IQ',
 };
 
 const VALID_CATEGORIES = Object.values(CATEGORY_MAP);
@@ -50,7 +56,7 @@ const seedQuestions = async () => {
   let dupes     = 0;
   let invalid   = 0;
 
-  for (const q of rawQuestions) {
+  for (const q of combinedQuestions) {
     const key = q.question?.trim().toLowerCase();
 
     // Skip missing required fields or wrong option count
@@ -85,7 +91,7 @@ const seedQuestions = async () => {
     });
   }
 
-  console.log(`\n Raw questions:      ${rawQuestions.length}`);
+  console.log(`\n Combined questions:  ${combinedQuestions.length}`);
   console.log(` Valid unique:        ${fixed.length}`);
   console.log(`  Duplicates removed: ${dupes}`);
   console.log(`  Invalid/skipped:    ${invalid}\n`);
@@ -108,12 +114,13 @@ const seedQuestions = async () => {
   ]);
   console.log(`\n✅ Inserted — Easy: ${easy} | Moderate: ${moderate} | Hard: ${hard}`);
 
-  const [auth, ps, debug] = await Promise.all([
-    Question.countDocuments({ isActive: true, category: 'Authentication & Security' }),
+  const [ps, lr, iq] = await Promise.all([
     Question.countDocuments({ isActive: true, category: 'Problem Solving' }),
-    Question.countDocuments({ isActive: true, category: 'Debugging' }),
+    Question.countDocuments({ isActive: true, category: 'Logical Reasoning' }),
+    Question.countDocuments({ isActive: true, category: 'IQ' }),
   ]);
-  console.log(`   Auth & Security: ${auth} | Problem Solving: ${ps} | Debugging: ${debug}`);
+  console.log(`   Problem Solving: ${ps}`);
+  console.log(`   Logical Reasoning: ${lr} | IQ: ${iq}`);
 
   // ── Quiz readiness check ──────────────────────────────────────────────────
   console.log('\n🔍 Quiz readiness:');
@@ -121,6 +128,7 @@ const seedQuestions = async () => {
   console.log(`   Need 7 moderate → ${moderate >= 7 ? '✓' : '✗ NOT ENOUGH'} (have ${moderate})`);
   console.log(`   Need 5 hard     → ${hard   >= 5  ? '✓' : '✗ NOT ENOUGH'} (have ${hard})`);
   console.log(`   Need 3 PS       → ${ps     >= 3  ? '✓' : '✗ NOT ENOUGH'} (have ${ps})`);
+  console.log(`   Logical Reasoning & IQ (Need 40) → ${lr + iq >= 40 ? '✓' : '✗ NOT ENOUGH'} (have ${lr + iq})`);
 
   // ── Admin user ────────────────────────────────────────────────────────────
   const adminExists = await User.findOne({ email: 'admin@devquiz.com' });

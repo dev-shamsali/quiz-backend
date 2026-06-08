@@ -33,8 +33,12 @@ const quizAttemptSchema = new mongoose.Schema({
   timeTaken: { type: Number, default: 0 },
   status: {
     type: String,
-    enum: ['in-progress', 'completed', 'abandoned'],
+    enum: ['in-progress', 'completed', 'suspended', 'abandoned'],
     default: 'in-progress',
+  },
+  adminAllowedResume: {
+    type: Boolean,
+    default: false,
   },
   breakdown: {
     easy: { total: { type: Number, default: 13 }, correct: { type: Number, default: 0 } },

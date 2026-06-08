@@ -1434,6 +1434,2107 @@ const questions = [
     tags: ["ISR", "revalidation", "CDN", "on-demand-revalidation", "caching"], estimatedTime: 120,
     realWorldUseCase: "Keeping quiz question pages fresh across global CDN nodes when admin adds new questions."
   },
+
+
+  {
+    question: "5 machines make 5 parts in 5 minutes. How long would it take 100 machines to make 100 parts?",
+    options: ["100 minutes","50 minutes","5 minutes","10 minutes"],
+    correctAnswer: "5 minutes",
+    explanation: "The correct option is \"5 minutes\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "3 workers paint 3 walls in 3 hours. How long does it take 9 workers to paint 9 walls?",
+    options: ["9 hours","1 hour","3 hours","27 hours"],
+    correctAnswer: "3 hours",
+    explanation: "The correct option is \"3 hours\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If 4 men can dig 4 holes in 4 days, how many days would it take 1 man to dig 1 hole?",
+    options: ["1 day","16 days","4 days","8 days"],
+    correctAnswer: "4 days",
+    explanation: "The correct option is \"4 days\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "6 printers print 6 pages in 6 seconds. How long to print 60 pages with 60 printers?",
+    options: ["60 seconds","6 seconds","10 seconds","1 second"],
+    correctAnswer: "6 seconds",
+    explanation: "The correct option is \"6 seconds\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "2 taps fill 2 tanks in 2 hours. How many hours for 8 taps to fill 8 tanks?",
+    options: ["8 hours","4 hours","1 hour","2 hours"],
+    correctAnswer: "2 hours",
+    explanation: "The correct option is \"2 hours\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If 10 workers build 10 houses in 10 months, how long for 1 worker to build 1 house?",
+    options: ["1 month","10 months","100 months","12 months"],
+    correctAnswer: "10 months",
+    explanation: "The correct option is \"10 months\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A factory has 8 robots making 8 toys in 8 minutes. How long for 4 robots to make 4 toys?",
+    options: ["4 minutes","16 minutes","8 minutes","2 minutes"],
+    correctAnswer: "8 minutes",
+    explanation: "The correct option is \"8 minutes\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If 6 bakers bake 6 cakes in 6 hours, how many cakes do 12 bakers bake in 12 hours?",
+    options: ["12 cakes","24 cakes","144 cakes","72 cakes"],
+    correctAnswer: "24 cakes",
+    explanation: "The correct option is \"24 cakes\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "5 pumps empty 5 pools in 5 days. How many days for 1 pump to empty 1 pool?",
+    options: ["1 day","25 days","5 days","10 days"],
+    correctAnswer: "5 days",
+    explanation: "The correct option is \"5 days\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A machine produces 100 items in 100 seconds. How many items does it produce in 1 second?",
+    options: ["100","10","1","0.1"],
+    correctAnswer: "1",
+    explanation: "The correct option is \"1\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If 20 workers finish a job in 20 days, how many workers are needed to finish it in 10 days?",
+    options: ["10 workers","30 workers","40 workers","20 workers"],
+    correctAnswer: "40 workers",
+    explanation: "The correct option is \"40 workers\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "3 machines fill 300 bottles in 6 minutes. How long for 1 machine to fill 100 bottles?",
+    options: ["2 minutes","6 minutes","18 minutes","9 minutes"],
+    correctAnswer: "2 minutes",
+    explanation: "The correct option is \"2 minutes\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "7 cooks prepare a meal for 7 people in 1 hour. How long for 7 cooks to prepare a meal for 49 people?",
+    options: ["1 hour","7 hours","3.5 hours","49 hours"],
+    correctAnswer: "7 hours",
+    explanation: "The correct option is \"7 hours\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If a tap fills a tank in 10 minutes alone and another fills it in 10 minutes alone, how long together?",
+    options: ["20 minutes","10 minutes","5 minutes","2 minutes"],
+    correctAnswer: "5 minutes",
+    explanation: "The correct option is \"5 minutes\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A car travels 60 km in 1 hour. How far does it travel in 30 minutes at the same speed?",
+    options: ["60 km","15 km","30 km","45 km"],
+    correctAnswer: "30 km",
+    explanation: "The correct option is \"30 km\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If 1 man digs a hole in 1 day, how long does it take 0 men to dig a hole?",
+    options: ["Never — impossible","0 days","2 days","1 day"],
+    correctAnswer: "Never — impossible",
+    explanation: "The correct option is \"Never — impossible\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A tank fills in 12 minutes with tap A alone. Tap B alone fills it in 6 minutes. How long together?",
+    options: ["9 minutes","4 minutes","3 minutes","18 minutes"],
+    correctAnswer: "4 minutes",
+    explanation: "The correct option is \"4 minutes\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If 5 workers complete a task in 8 hours, how many workers are needed to complete it in 4 hours?",
+    options: ["8","10","12","15"],
+    correctAnswer: "10",
+    explanation: "The correct option is \"10\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A pipe fills a pool in 20 min. A drain empties it in 30 min. Both open — how long to fill the pool?",
+    options: ["50 minutes","60 minutes","25 minutes","10 minutes"],
+    correctAnswer: "60 minutes",
+    explanation: "The correct option is \"60 minutes\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "12 men can build a wall in 8 days. How many men are needed to build it in 6 days?",
+    options: ["14","16","18","20"],
+    correctAnswer: "16",
+    explanation: "The correct option is \"16\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A car travels at 60km/h for 2 hours and 90km/h for 1 hour. What is the average speed for the whole trip?",
+    options: ["70 km/h","75 km/h","80 km/h","65 km/h"],
+    correctAnswer: "70 km/h",
+    explanation: "The correct option is \"70 km/h\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If you travel 120 km at 60 km/h, how long does the trip take?",
+    options: ["1 hour","1.5 hours","2 hours","2.5 hours"],
+    correctAnswer: "2 hours",
+    explanation: "The correct option is \"2 hours\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A car uses 8 litres of fuel per 100 km. How much fuel for a 250 km trip?",
+    options: ["16 litres","20 litres","24 litres","25 litres"],
+    correctAnswer: "20 litres",
+    explanation: "The correct option is \"20 litres\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["machines-work","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What comes next? 2, 4, 8, 16, 32, ___",
+    options: ["48","56","64","72"],
+    correctAnswer: "64",
+    explanation: "The correct option is \"64\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What is the missing number? 1, 4, 9, 16, ___, 36",
+    options: ["20","25","22","28"],
+    correctAnswer: "25",
+    explanation: "The correct option is \"25\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Complete the series: 3, 6, 9, 12, ___",
+    options: ["14","15","16","18"],
+    correctAnswer: "15",
+    explanation: "The correct option is \"15\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What comes next? 1, 1, 2, 3, 5, 8, ___",
+    options: ["11","12","13","14"],
+    correctAnswer: "13",
+    explanation: "The correct option is \"13\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Find the pattern: 100, 90, 81, 73, 66, ___",
+    options: ["58","60","61","59"],
+    correctAnswer: "60",
+    explanation: "The correct option is \"60\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What comes next? 2, 6, 12, 20, 30, ___",
+    options: ["40","42","44","45"],
+    correctAnswer: "42",
+    explanation: "The correct option is \"42\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Fill in: 5, 10, 20, 40, ___",
+    options: ["60","80","70","100"],
+    correctAnswer: "80",
+    explanation: "The correct option is \"80\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What is missing? 2, 5, 11, 23, ___, 95",
+    options: ["45","47","46","48"],
+    correctAnswer: "47",
+    explanation: "The correct option is \"47\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Next in series: 7, 14, 21, 28, ___",
+    options: ["33","35","36","34"],
+    correctAnswer: "35",
+    explanation: "The correct option is \"35\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What is the pattern? 1, 2, 4, 7, 11, 16, ___",
+    options: ["20","22","23","21"],
+    correctAnswer: "22",
+    explanation: "The correct option is \"22\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Complete: 81, 27, 9, 3, ___",
+    options: ["1","0","2","-1"],
+    correctAnswer: "1",
+    explanation: "The correct option is \"1\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What comes next? 0, 3, 8, 15, 24, ___",
+    options: ["34","35","36","33"],
+    correctAnswer: "35",
+    explanation: "The correct option is \"35\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Series: 10, 9, 7, 4, 0, ___",
+    options: ["-4","-3","-5","-6"],
+    correctAnswer: "-5",
+    explanation: "The correct option is \"-5\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What's missing? 4, 9, 16, 25, ___, 49",
+    options: ["30","36","32","38"],
+    correctAnswer: "36",
+    explanation: "The correct option is \"36\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Find next: 1, 3, 7, 15, 31, ___",
+    options: ["63","62","60","64"],
+    correctAnswer: "63",
+    explanation: "The correct option is \"63\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What comes next? 1000, 100, 10, ___",
+    options: ["5","0","1","2"],
+    correctAnswer: "1",
+    explanation: "The correct option is \"1\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Complete: 2, 3, 5, 7, 11, 13, ___",
+    options: ["15","17","14","19"],
+    correctAnswer: "17",
+    explanation: "The correct option is \"17\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Series: 144, 121, 100, 81, ___",
+    options: ["69","64","72","60"],
+    correctAnswer: "64",
+    explanation: "The correct option is \"64\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Next value: 3, 9, 27, 81, ___",
+    options: ["162","243","324","270"],
+    correctAnswer: "243",
+    explanation: "The correct option is \"243\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Fill in: 1, 8, 27, 64, ___",
+    options: ["100","125","120","110"],
+    correctAnswer: "125",
+    explanation: "The correct option is \"125\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What's next? 5, 10, 17, 26, 37, ___",
+    options: ["48","50","51","49"],
+    correctAnswer: "50",
+    explanation: "The correct option is \"50\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What is 25% of 200?",
+    options: ["25","50","75","100"],
+    correctAnswer: "50",
+    explanation: "The correct option is \"50\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If a number is doubled and the result is 84, what is the original number?",
+    options: ["42","46","48","38"],
+    correctAnswer: "42",
+    explanation: "The correct option is \"42\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "The sum of two numbers is 30 and their difference is 10. What are the two numbers?",
+    options: ["20 and 10","25 and 5","15 and 15","18 and 12"],
+    correctAnswer: "20 and 10",
+    explanation: "The correct option is \"20 and 10\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A number is 3 more than twice another. Together they are 18. Find both numbers.",
+    options: ["5 and 13","4 and 14","6 and 12","7 and 11"],
+    correctAnswer: "5 and 13",
+    explanation: "The correct option is \"5 and 13\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If you add 1/3 and 1/4, what do you get?",
+    options: ["1/7","2/7","7/12","5/12"],
+    correctAnswer: "7/12",
+    explanation: "The correct option is \"7/12\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A price increases from $80 to $100. What is the percentage increase?",
+    options: ["20%","25%","15%","30%"],
+    correctAnswer: "25%",
+    explanation: "The correct option is \"25%\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What is the square root of 169?",
+    options: ["11","12","13","14"],
+    correctAnswer: "13",
+    explanation: "The correct option is \"13\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Three consecutive numbers sum to 48. What is the middle number?",
+    options: ["14","15","16","17"],
+    correctAnswer: "16",
+    explanation: "The correct option is \"16\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A shop gives 20% discount. If the original price is $150, what do you pay?",
+    options: ["$130","$120","$110","$100"],
+    correctAnswer: "$120",
+    explanation: "The correct option is \"$120\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If X is 40% of 80, what is X?",
+    options: ["28","30","32","36"],
+    correctAnswer: "32",
+    explanation: "The correct option is \"32\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What is 15% of 60?",
+    options: ["6","7","8","9"],
+    correctAnswer: "9",
+    explanation: "The correct option is \"9\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If a dozen eggs costs $2.40, how much does 1 egg cost?",
+    options: ["20 cents","22 cents","24 cents","18 cents"],
+    correctAnswer: "20 cents",
+    explanation: "The correct option is \"20 cents\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many seconds are in 2 hours?",
+    options: ["3600","5400","7200","10800"],
+    correctAnswer: "7200",
+    explanation: "The correct option is \"7200\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A number multiplied by itself gives 144. What is the number?",
+    options: ["11","12","13","14"],
+    correctAnswer: "12",
+    explanation: "The correct option is \"12\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What is the LCM of 4 and 6?",
+    options: ["12","8","24","6"],
+    correctAnswer: "12",
+    explanation: "The correct option is \"12\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If 30% of a number is 45, what is the number?",
+    options: ["100","135","150","120"],
+    correctAnswer: "150",
+    explanation: "The correct option is \"150\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A rectangle is 8cm long and 5cm wide. What is its area?",
+    options: ["26 cm²","30 cm²","40 cm²","13 cm²"],
+    correctAnswer: "40 cm²",
+    explanation: "The correct option is \"40 cm²\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many odd numbers are between 1 and 20 (not including 1 and 20)?",
+    options: ["8","9","10","7"],
+    correctAnswer: "9",
+    explanation: "The correct option is \"9\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["number-patterns","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If you have a 3-litre jug and a 5-litre jug, how do you measure exactly 4 litres?",
+    options: ["Fill 5L, pour into 3L, empty 3L, pour remaining 2L into 3L, refill 5L, top up 3L — 4L remains in 5L jug","It's impossible","Fill both jugs halfway","Fill 3L jug and add to 5L jug twice"],
+    correctAnswer: "Fill 5L, pour into 3L, empty 3L, pour remaining 2L into 3L, refill 5L, top up 3L — 4L remains in 5L jug",
+    explanation: "The correct option is \"Fill 5L, pour into 3L, empty 3L, pour remaining 2L into 3L, refill 5L, top up 3L — 4L remains in 5L jug\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A farmer has 17 sheep. All but 9 die. How many sheep are left?",
+    options: ["8","0","9","17"],
+    correctAnswer: "9",
+    explanation: "The correct option is \"9\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A rooster lays an egg on top of a triangular roof. Which side does it roll down?",
+    options: ["The steeper side","The flatter side","Straight down the middle","Roosters don't lay eggs"],
+    correctAnswer: "Roosters don't lay eggs",
+    explanation: "The correct option is \"Roosters don't lay eggs\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many months have 28 days?",
+    options: ["1","2","4","12"],
+    correctAnswer: "12",
+    explanation: "The correct option is \"12\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "You're in a room with 3 light switches, one controls a bulb in another room. You can only visit once. How do you find the right switch?",
+    options: ["Flip all three and guess","Turn on switch 1 for a few minutes, turn it off, turn on switch 2, enter the room — warm but off = switch 1, on = switch 2, cold and off = switch 3","You can't solve it","Keep flipping until someone tells you"],
+    correctAnswer: "Turn on switch 1 for a few minutes, turn it off, turn on switch 2, enter the room — warm but off = switch 1, on = switch 2, cold and off = switch 3",
+    explanation: "The correct option is \"Turn on switch 1 for a few minutes, turn it off, turn on switch 2, enter the room — warm but off = switch 1, on = switch 2, cold and off = switch 3\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If you overtake the person in 2nd place in a race, what place are you in?",
+    options: ["1st place","2nd place","3rd place","It depends on the race"],
+    correctAnswer: "2nd place",
+    explanation: "The correct option is \"2nd place\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "I have two coins totalling 30 cents. One is not a nickel. What are the two coins?",
+    options: ["Two dimes and a penny","A quarter and a nickel","Two nickels","A quarter and two pennies"],
+    correctAnswer: "A quarter and a nickel",
+    explanation: "The correct option is \"A quarter and a nickel\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Before Mount Everest was discovered, what was the tallest mountain in the world?",
+    options: ["K2","Kangchenjunga","Mount Everest — it was always the tallest, just undiscovered","Denali"],
+    correctAnswer: "Mount Everest — it was always the tallest, just undiscovered",
+    explanation: "The correct option is \"Mount Everest — it was always the tallest, just undiscovered\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A man builds a house with all four walls facing south. A bear walks by. What color is the bear?",
+    options: ["Brown","Black","White","Gray"],
+    correctAnswer: "White",
+    explanation: "The correct option is \"White\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If there are 3 apples and you take away 2, how many apples do you have?",
+    options: ["1","2","3","0"],
+    correctAnswer: "2",
+    explanation: "The correct option is \"2\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A doctor gives you 3 pills and says take one every half hour. How long until the pills are gone?",
+    options: ["1.5 hours","1 hour","90 minutes","2 hours"],
+    correctAnswer: "1 hour",
+    explanation: "The correct option is \"1 hour\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A bat and ball together cost $1.10. The bat costs $1 more than the ball. How much does the ball cost?",
+    options: ["10 cents","5 cents","15 cents","1 cent"],
+    correctAnswer: "5 cents",
+    explanation: "The correct option is \"5 cents\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many birthdays does the average person have?",
+    options: ["Depends on age","One","12","365"],
+    correctAnswer: "One",
+    explanation: "The correct option is \"One\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Two fathers and two sons go fishing. Each catches one fish. Only 3 fish are caught. How?",
+    options: ["One fish was thrown back","There are only 3 people: grandfather, father, and son","Two people didn't catch any","The question is wrong"],
+    correctAnswer: "There are only 3 people: grandfather, father, and son",
+    explanation: "The correct option is \"There are only 3 people: grandfather, father, and son\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A man is looking at a portrait. \"Brothers and sisters I have none, but this man's father is my father's son.\" Whose portrait is it?",
+    options: ["His own portrait","His son","His father","His brother"],
+    correctAnswer: "His son",
+    explanation: "The correct option is \"His son\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "You are in a dark room with a candle, a wood stove, and a gas lamp. You have one match. What do you light first?",
+    options: ["The candle","The wood stove","The gas lamp","The match"],
+    correctAnswer: "The match",
+    explanation: "The correct option is \"The match\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How can you make the number 7 even without math operations?",
+    options: ["Write it backwards","It's impossible","Remove the 'S' from SEVEN → EVEN","Round it down to 6"],
+    correctAnswer: "Remove the 'S' from SEVEN → EVEN",
+    explanation: "The correct option is \"Remove the 'S' from SEVEN → EVEN\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A plane crashes on the border of Canada and the USA. Where do they bury the survivors?",
+    options: ["Canada","USA","Both countries","You don't bury survivors"],
+    correctAnswer: "You don't bury survivors",
+    explanation: "The correct option is \"You don't bury survivors\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What has hands but can't clap?",
+    options: ["A mannequin","A clock","A statue","A scarecrow"],
+    correctAnswer: "A clock",
+    explanation: "The correct option is \"A clock\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What has teeth but can't bite?",
+    options: ["A saw","A shark","A comb","A zipper"],
+    correctAnswer: "A comb",
+    explanation: "The correct option is \"A comb\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What gets wetter the more it dries?",
+    options: ["A sponge","A towel","Rain","A fish"],
+    correctAnswer: "A towel",
+    explanation: "The correct option is \"A towel\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What walks on 4 legs in the morning, 2 at noon, and 3 in the evening?",
+    options: ["A crab","A bear","A human","A horse"],
+    correctAnswer: "A human",
+    explanation: "The correct option is \"A human\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What is always in front of you but can never be seen?",
+    options: ["Air","The future","Your shadow","Light"],
+    correctAnswer: "The future",
+    explanation: "The correct option is \"The future\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What can you catch but not throw?",
+    options: ["A ball","A cold","A fish","A frisbee"],
+    correctAnswer: "A cold",
+    explanation: "The correct option is \"A cold\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "The more you take, the more you leave behind. What are they?",
+    options: ["Memories","Footsteps","Years","Breaths"],
+    correctAnswer: "Footsteps",
+    explanation: "The correct option is \"Footsteps\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "I have cities but no houses, mountains but no trees, water but no fish. What am I?",
+    options: ["A dream","A map","A painting","A mirror"],
+    correctAnswer: "A map",
+    explanation: "The correct option is \"A map\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "I speak without a mouth and hear without ears. I have no body but come alive with wind. What am I?",
+    options: ["A ghost","An echo","A radio","A shadow"],
+    correctAnswer: "An echo",
+    explanation: "The correct option is \"An echo\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "You have 10 bags with 10 coins. One bag has fake coins (9g each; real = 10g). Using a scale once, how do you find the fake bag?",
+    options: ["Weigh all bags together","Take 1 coin from bag 1, 2 from bag 2, etc., weigh all — the deficit in grams = the fake bag number","Weigh 5 bags at a time","Shake each bag and listen"],
+    correctAnswer: "Take 1 coin from bag 1, 2 from bag 2, etc., weigh all — the deficit in grams = the fake bag number",
+    explanation: "The correct option is \"Take 1 coin from bag 1, 2 from bag 2, etc., weigh all — the deficit in grams = the fake bag number\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["logic-puzzles","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What letter comes next? A, C, E, G, ___",
+    options: ["H","I","J","K"],
+    correctAnswer: "I",
+    explanation: "The correct option is \"I\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Complete: Z, Y, X, W, ___",
+    options: ["U","T","S","V"],
+    correctAnswer: "V",
+    explanation: "The correct option is \"V\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What comes next? A, B, D, G, K, ___",
+    options: ["L","M","N","P"],
+    correctAnswer: "P",
+    explanation: "The correct option is \"P\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Number sequence: 2, 4, 12, 48, ___",
+    options: ["96","192","144","240"],
+    correctAnswer: "240",
+    explanation: "The correct option is \"240\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Fill in: 1, 2, 6, 24, 120, ___",
+    options: ["240","600","720","840"],
+    correctAnswer: "720",
+    explanation: "The correct option is \"720\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What's next? Monday, Wednesday, Friday, ___",
+    options: ["Saturday","Sunday","Tuesday","Thursday"],
+    correctAnswer: "Sunday",
+    explanation: "The correct option is \"Sunday\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Complete: Jan, Apr, Jul, ___",
+    options: ["Aug","Sep","Oct","Nov"],
+    correctAnswer: "Oct",
+    explanation: "The correct option is \"Oct\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Number pattern: 1, 4, 9, 16, 25, ___",
+    options: ["30","36","49","32"],
+    correctAnswer: "36",
+    explanation: "The correct option is \"36\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What comes next? 2, 3, 5, 8, 13, 21, ___",
+    options: ["29","31","34","35"],
+    correctAnswer: "34",
+    explanation: "The correct option is \"34\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Series: ♠ ♥ ♦ ♣ ♠ ♥ ___",
+    options: ["♠","♥","♦","♣"],
+    correctAnswer: "♦",
+    explanation: "The correct option is \"♦\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Letters: B, D, F, H, ___",
+    options: ["I","J","L","K"],
+    correctAnswer: "J",
+    explanation: "The correct option is \"J\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What's next? 3, 8, 15, 24, 35, ___",
+    options: ["46","48","50","44"],
+    correctAnswer: "48",
+    explanation: "The correct option is \"48\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Complete: 100, 50, 25, 12.5, ___",
+    options: ["5","6","6.25","10"],
+    correctAnswer: "6.25",
+    explanation: "The correct option is \"6.25\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What comes next? 1, 2, 4, 8, 16, 32, ___",
+    options: ["48","56","64","72"],
+    correctAnswer: "64",
+    explanation: "The correct option is \"64\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Fill in: 0, 1, 3, 6, 10, 15, ___",
+    options: ["20","21","22","25"],
+    correctAnswer: "21",
+    explanation: "The correct option is \"21\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What comes next in the pattern? 1, 11, 21, 1211, 111221, ___",
+    options: ["312211","123121","312221","211311"],
+    correctAnswer: "312211",
+    explanation: "The correct option is \"312211\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Complete: AZ, BY, CX, DW, ___",
+    options: ["EV","EU","FV","EW"],
+    correctAnswer: "EV",
+    explanation: "The correct option is \"EV\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What's next? 1, 5, 14, 30, 55, ___",
+    options: ["77","85","91","100"],
+    correctAnswer: "91",
+    explanation: "The correct option is \"91\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Fill in: 2, 2, 4, 12, 48, ___",
+    options: ["96","120","144","240"],
+    correctAnswer: "240",
+    explanation: "The correct option is \"240\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Complete: A1, B2, C3, D4, ___",
+    options: ["E4","F5","E5","D5"],
+    correctAnswer: "E5",
+    explanation: "The correct option is \"E5\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What's the pattern? 31, 28, 31, 30, 31, 30, ___",
+    options: ["31","28","30","29"],
+    correctAnswer: "31",
+    explanation: "The correct option is \"31\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "Next in series: 112, 123, 134, 145, ___",
+    options: ["155","156","157","158"],
+    correctAnswer: "156",
+    explanation: "The correct option is \"156\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What's next? 1, 2, 3, 5, 8, 13, 21, 34, ___",
+    options: ["47","55","50","52"],
+    correctAnswer: "55",
+    explanation: "The correct option is \"55\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What comes next? 5, 15, 45, 135, ___",
+    options: ["270","375","405","540"],
+    correctAnswer: "405",
+    explanation: "The correct option is \"405\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What's missing? 64, ___, 16, 8, 4",
+    options: ["32","24","48","30"],
+    correctAnswer: "32",
+    explanation: "The correct option is \"32\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "Logical Reasoning",
+    technology: "Logical Reasoning",
+    type: "mcq",
+    tags: ["sequences","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A cube is painted red on all sides and cut into 27 equal smaller cubes. How many small cubes have NO red sides?",
+    options: ["1","8","6","9"],
+    correctAnswer: "1",
+    explanation: "The correct option is \"1\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A snail is at the bottom of a 10-metre well. Each day it climbs 3m, each night it slides back 2m. How many days to escape?",
+    options: ["8 days","10 days","7 days","9 days"],
+    correctAnswer: "8 days",
+    explanation: "The correct option is \"8 days\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many triangles are in a triangle divided into 4 equal smaller triangles?",
+    options: ["4","5","6","8"],
+    correctAnswer: "5",
+    explanation: "The correct option is \"5\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "You fold a square paper in half twice (both folds parallel), then punch a hole through all layers. How many holes when unfolded?",
+    options: ["1","2","4","8"],
+    correctAnswer: "4",
+    explanation: "The correct option is \"4\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A 3×3×3 cube is made of 27 unit cubes. How many unit cubes are completely hidden (no face visible)?",
+    options: ["1","3","6","9"],
+    correctAnswer: "1",
+    explanation: "The correct option is \"1\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If you cut a cylindrical log into 3 pieces, how many cuts are needed?",
+    options: ["3","4","2","1"],
+    correctAnswer: "2",
+    explanation: "The correct option is \"2\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A clock shows 3:15. What is the angle between the hour and minute hands?",
+    options: ["0°","7.5°","15°","22.5°"],
+    correctAnswer: "7.5°",
+    explanation: "The correct option is \"7.5°\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many squares are in a 3×3 grid of squares?",
+    options: ["9","12","14","16"],
+    correctAnswer: "14",
+    explanation: "The correct option is \"14\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A box has 6 faces. How many faces do 5 separate boxes have?",
+    options: ["11","25","30","36"],
+    correctAnswer: "30",
+    explanation: "The correct option is \"30\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A ball is thrown straight up. How many times does it have zero velocity?",
+    options: ["Never","Once (at the top)","Twice","Three times"],
+    correctAnswer: "Once (at the top)",
+    explanation: "The correct option is \"Once (at the top)\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A circle has a radius of 5. What is the area? (π ≈ 3.14)",
+    options: ["31.4","78.5","15.7","25"],
+    correctAnswer: "78.5",
+    explanation: "The correct option is \"78.5\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "You have a square room. In each corner sits a cat. In front of each cat sit 3 more cats. How many cats total?",
+    options: ["16","12","4","28"],
+    correctAnswer: "16",
+    explanation: "The correct option is \"16\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A cube's surface area is 54 cm². What is the side length?",
+    options: ["3 cm","4 cm","6 cm","9 cm"],
+    correctAnswer: "3 cm",
+    explanation: "The correct option is \"3 cm\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If you drive 4 km north then 3 km east, how far are you from the start?",
+    options: ["7 km","5 km","6 km","4 km"],
+    correctAnswer: "5 km",
+    explanation: "The correct option is \"5 km\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many faces does a tetrahedron have?",
+    options: ["3","4","5","6"],
+    correctAnswer: "4",
+    explanation: "The correct option is \"4\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A clock shows 6:00. What is the angle between the hands?",
+    options: ["90°","120°","180°","270°"],
+    correctAnswer: "180°",
+    explanation: "The correct option is \"180°\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many edges does a cube have?",
+    options: ["8","10","12","6"],
+    correctAnswer: "12",
+    explanation: "The correct option is \"12\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If you unfold a cube, how many squares do you get?",
+    options: ["4","5","6","8"],
+    correctAnswer: "6",
+    explanation: "The correct option is \"6\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A rectangular room is 10m long and 8m wide. What is the perimeter?",
+    options: ["18m","36m","80m","20m"],
+    correctAnswer: "36m",
+    explanation: "The correct option is \"36m\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many diagonals does a square have?",
+    options: ["1","2","4","8"],
+    correctAnswer: "2",
+    explanation: "The correct option is \"2\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If a square has a perimeter of 20cm, what is its area?",
+    options: ["20 cm²","25 cm²","16 cm²","100 cm²"],
+    correctAnswer: "25 cm²",
+    explanation: "The correct option is \"25 cm²\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many vertices (corners) does a cube have?",
+    options: ["6","8","10","12"],
+    correctAnswer: "8",
+    explanation: "The correct option is \"8\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A ladder leans against a wall. The base is 6m from the wall, the ladder is 10m long. How high up the wall does it reach?",
+    options: ["6m","7m","8m","9m"],
+    correctAnswer: "8m",
+    explanation: "The correct option is \"8m\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many sides does a hexagon have?",
+    options: ["5","6","7","8"],
+    correctAnswer: "6",
+    explanation: "The correct option is \"6\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many triangles can you form from the vertices of a square?",
+    options: ["2","4","6","8"],
+    correctAnswer: "4",
+    explanation: "The correct option is \"4\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many rectangles are in a 2×2 grid?",
+    options: ["4","6","8","9"],
+    correctAnswer: "9",
+    explanation: "The correct option is \"9\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A frog starts at lily pad 1 and doubles its distance each jump. It reaches pad 8 in 3 jumps. Which pad does it start at?",
+    options: ["Pad 1","Pad 2","Pad 3","Pad 4"],
+    correctAnswer: "Pad 1",
+    explanation: "The correct option is \"Pad 1\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What is 50% of 50% of 200?",
+    options: ["25","50","100","75"],
+    correctAnswer: "50",
+    explanation: "The correct option is \"50\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A train travels from A to B at 60 km/h and returns at 40 km/h. What is the average speed for the whole journey?",
+    options: ["50 km/h","52 km/h","48 km/h","45 km/h"],
+    correctAnswer: "48 km/h",
+    explanation: "The correct option is \"48 km/h\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "How many times does the digit 1 appear from 1 to 20?",
+    options: ["10","11","12","13"],
+    correctAnswer: "12",
+    explanation: "The correct option is \"12\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "easy",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If today is Wednesday, what day will it be 100 days from now?",
+    options: ["Monday","Friday","Saturday","Sunday"],
+    correctAnswer: "Friday",
+    explanation: "The correct option is \"Friday\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A clock loses 10 minutes every hour. If set correctly at 12:00 noon, what does it show at 6:00 PM?",
+    options: ["5:00 PM","5:00 PM","4:50 PM","5:10 PM"],
+    correctAnswer: "5:00 PM",
+    explanation: "The correct option is \"5:00 PM\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "What is the next prime number after 23?",
+    options: ["25","26","29","27"],
+    correctAnswer: "29",
+    explanation: "The correct option is \"29\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "If CAT = 3+1+20 = 24, what does DOG equal?",
+    options: ["22","23","26","25"],
+    correctAnswer: "26",
+    explanation: "The correct option is \"26\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "moderate",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  },
+
+  {
+    question: "A sequence goes: 2, 6, 18, 54, ___. What's next?",
+    options: ["108","162","216","180"],
+    correctAnswer: "162",
+    explanation: "The correct option is \"162\". This is determined by analyzing the logical pattern, arithmetic sequence, or spatial relationships described in the question.",
+    difficulty: "hard",
+    category: "IQ",
+    technology: "IQ",
+    type: "mcq",
+    tags: ["spatial-visual","aptitude"],
+    estimatedTime: 45,
+    realWorldUseCase: "Assesses cognitive ability, abstract reasoning, and problem-solving aptitude."
+  }
 ];
 
 export default questions;

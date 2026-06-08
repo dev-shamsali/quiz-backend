@@ -17,13 +17,32 @@ const startQuiz = asyncHandler(async (req, res, next) => {
     return next(new ApiError('Quiz is not currently open. Please wait for the administrator to open the quiz.', 403));
   }
 
-  // ── Resume in-progress attempt ─────────────────────────────────────────
+  // ── Resume in-progress or suspended attempt ─────────────────────────────
   const activeAttempt = await QuizAttempt.findOne({
     student: req.user._id,
-    status: 'in-progress',
+    status: { $in: ['in-progress', 'suspended'] },
   });
 
   if (activeAttempt) {
+    // Check if resuming is permitted by admin
+    if (activeAttempt.status === 'suspended') {
+      if (!activeAttempt.adminAllowedResume) {
+        return next(new ApiError('Your test is suspended. Please ask the administrator to allow you to resume.', 403));
+      }
+    } else if (activeAttempt.status === 'in-progress') {
+      // Re-entry to start quiz while in-progress indicates reload/exit
+      if (!activeAttempt.adminAllowedResume) {
+        activeAttempt.status = 'suspended';
+        await activeAttempt.save();
+        return next(new ApiError('Your test has been suspended due to tab exit or page reload. Please ask the administrator to allow you to resume.', 403));
+      }
+    }
+
+    // Set back to in-progress and revoke further resumes until admin enables again
+    activeAttempt.status = 'in-progress';
+    activeAttempt.adminAllowedResume = false;
+    await activeAttempt.save();
+
     const questions = await Question.find(
       { _id: { $in: activeAttempt.questions.map((q) => q.question) } },
       { correctAnswer: 0, explanation: 0 }
@@ -55,6 +74,15 @@ const startQuiz = asyncHandler(async (req, res, next) => {
     }
     activeSection = Math.min(activeSection, SECTION_CONFIG.length - 1);
 
+    // Map saved answers & descriptions
+    const answersMap = {};
+    const descriptionsMap = {};
+    activeAttempt.questions.forEach((q) => {
+      const qId = q.question.toString();
+      if (q.selectedAnswer) answersMap[qId] = q.selectedAnswer;
+      if (q.description) descriptionsMap[qId] = q.description;
+    });
+
     return sendResponse(res, 200, 'Resuming existing quiz', {
       attemptId:             activeAttempt._id,
       questions:             questionsWithSection,
@@ -63,13 +91,15 @@ const startQuiz = asyncHandler(async (req, res, next) => {
       activeSectionIndex:    activeSection,
       sectionTimeLeftSeconds,
       sectionConfig:         SECTION_CONFIG,
+      answers:               answersMap,
+      descriptions:          descriptionsMap,
     });
   }
 
   // ── Fresh attempt ──────────────────────────────────────────────────────
-  const student   = await User.findById(req.user._id).select('seenQuestions').lean();
-  const seenIds   = (student.seenQuestions || []).map((id) => id.toString());
-  const questions = await getRandomQuestions(seenIds);
+  const student = await User.findById(req.user._id).select('seenQuestions').lean();
+  const seenIds = (student?.seenQuestions || []).map((id) => id.toString());
+  const questions = await getRandomQuestions(seenIds, req.user._id);
   const questionIds = questions.map((q) => q._id);
 
   const attempt = await QuizAttempt.create({
@@ -173,7 +203,7 @@ const submitQuiz = asyncHandler(async (req, res, next) => {
   attempt.percentage        = percentage;
   attempt.timeTaken         = timeTaken || 0;
   attempt.endTime           = new Date();
-  attempt.status            = violation ? 'abandoned' : 'completed';
+  attempt.status            = violation ? 'suspended' : 'completed';
   attempt.breakdown         = breakdown;
   attempt.categoryBreakdown = categoryBreakdown;
   attempt.grade             = attempt.calculateGrade();
@@ -250,10 +280,45 @@ const abandonQuiz = asyncHandler(async (req, res, next) => {
   const attempt = await QuizAttempt.findOneAndUpdate(
     { _id: req.params.id, student: req.user._id, status: 'in-progress' },
     { status: 'abandoned', endTime: new Date() },
-    { new: true }
+    { returnDocument: 'after' }
   );
   if (!attempt) return next(new ApiError('Active attempt not found', 404));
   sendResponse(res, 200, 'Quiz abandoned', { attemptId: attempt._id });
+});
+
+// ── saveProgress ──────────────────────────────────────────────────────────
+const saveProgress = asyncHandler(async (req, res, next) => {
+  const { attemptId } = req.params;
+  const { answers } = req.body;
+
+  const attempt = await QuizAttempt.findOne({
+    _id: attemptId,
+    student: req.user._id,
+    status: 'in-progress',
+  });
+
+  if (!attempt) {
+    return next(new ApiError('In-progress quiz attempt not found', 404));
+  }
+
+  const answersMap = {};
+  (answers || []).forEach((ans) => {
+    answersMap[ans.questionId.toString()] = {
+      selectedAnswer: ans.selectedAnswer,
+      description: ans.description,
+    };
+  });
+
+  attempt.questions.forEach((q) => {
+    const saved = answersMap[q.question.toString()];
+    if (saved) {
+      q.selectedAnswer = saved.selectedAnswer;
+      q.description = saved.description;
+    }
+  });
+
+  await attempt.save();
+  sendResponse(res, 200, 'Progress saved successfully');
 });
 
 // ── getDashboard ──────────────────────────────────────────────────────────
@@ -288,4 +353,4 @@ const getDashboard = asyncHandler(async (req, res) => {
   });
 });
 
-export { startQuiz, submitQuiz, getAttempts, getAttemptById, abandonQuiz, getDashboard };
+export { startQuiz, submitQuiz, getAttempts, getAttemptById, abandonQuiz, getDashboard, saveProgress };

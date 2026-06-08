@@ -20,34 +20,34 @@ const generateQuizReport = async (attemptData) => {
   const wrongSample = wrongQuestions.slice(0, 10);
   const wrongText = wrongSample.length > 0
     ? wrongSample.map((q, i) => {
-        const isPS = q.category === 'Problem Solving';
-        let lines = `  ${i + 1}. [${q.difficulty.toUpperCase()} | ${q.category}] ${q.question}\n`;
-        if (isPS && q.writtenDescription) {
-          lines += `     Written answer:   "${q.writtenDescription}"\n`;
-          lines += `     (Problem Solving — evaluate quality of written explanation, not right/wrong)\n`;
-          lines += `     Model answer:     "${q.correctAnswer || 'Open-ended — teacher reviews'}"`;
-        } else if (isPS && !q.writtenDescription) {
-          lines += `     Written answer:   (no answer provided)\n`;
-          lines += `     (Problem Solving — student left this blank)`;
-        } else {
-          lines += `     Student answered: "${q.yourAnswer || 'unanswered'}"\n`;
-          lines += `     Correct answer:   "${q.correctAnswer}"`;
-        }
-        return lines;
-      }).join('\n')
+      const isPS = q.category === 'Problem Solving';
+      let lines = `  ${i + 1}. [${q.difficulty.toUpperCase()} | ${q.category}] ${q.question}\n`;
+      if (isPS && q.writtenDescription) {
+        lines += `     Written answer:   "${q.writtenDescription}"\n`;
+        lines += `     (Problem Solving — evaluate quality of written explanation, not right/wrong)\n`;
+        lines += `     Model answer:     "${q.correctAnswer || 'Open-ended — teacher reviews'}"`;
+      } else if (isPS && !q.writtenDescription) {
+        lines += `     Written answer:   (no answer provided)\n`;
+        lines += `     (Problem Solving — student left this blank)`;
+      } else {
+        lines += `     Student answered: "${q.yourAnswer || 'unanswered'}"\n`;
+        lines += `     Correct answer:   "${q.correctAnswer}"`;
+      }
+      return lines;
+    }).join('\n')
     : '  (No wrong questions data available)';
 
   // Weighted score: weight hard questions more
-  const easyPct     = breakdown.easy.total     > 0 ? (breakdown.easy.correct     / breakdown.easy.total)     : 0;
-  const modPct      = breakdown.moderate.total > 0 ? (breakdown.moderate.correct / breakdown.moderate.total) : 0;
-  const hardPct     = breakdown.hard.total     > 0 ? (breakdown.hard.correct     / breakdown.hard.total)     : 0;
+  const easyPct = breakdown.easy.total > 0 ? (breakdown.easy.correct / breakdown.easy.total) : 0;
+  const modPct = breakdown.moderate.total > 0 ? (breakdown.moderate.correct / breakdown.moderate.total) : 0;
+  const hardPct = breakdown.hard.total > 0 ? (breakdown.hard.correct / breakdown.hard.total) : 0;
   const weightedPct = ((easyPct * 0.3) + (modPct * 0.4) + (hardPct * 0.3)) * 100;
 
   const violationNote = violation
     ? '\nNOTE: This student was flagged for a proctoring violation (tab switch / window exit) during the quiz. Mention this briefly and professionally in the feedback.'
     : '';
 
-  const prompt = `You are a senior MERN stack technical evaluator and career coach generating a detailed, professional performance report for an educational assessment platform.
+  const prompt = `You are a senior MERN stack technical evaluator and career coach generating a detailed, professional performance report for an educational assessment platform. Evaluate each answer, and give in which topic student should improve and which topic is he good in. Also Based on IQ Based Problem Solving Questions, Show Strngth and Waknesses. Show whole Report Accurate. Do Proper Grading between 1-10. 
 
 STUDENT ASSESSMENT DATA
 ═══════════════════════
@@ -81,7 +81,7 @@ INSTRUCTIONS
 You must return ONLY a single valid JSON object — no markdown, no extra text, no code fences.
 
 The "score" field MUST be calculated precisely:
-- 0–10%:   score 1
+- 1–10%:   score 1
 - 11–20%:  score 2
 - 21–30%:  score 3
 - 31–40%:  score 4
@@ -137,12 +137,12 @@ JSON SCHEMA (return exactly this structure):
 }`;
 
   try {
-    const model  = getModel('gemini-2.0-flash');
+    const model = getModel('gemini-2.0-flash');
     const result = await model.generateContent(prompt);
-    const text   = result.response.text().trim();
+    const text = result.response.text().trim();
     // Strip any accidental markdown fences
     const cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
-    const parsed  = JSON.parse(cleaned);
+    const parsed = JSON.parse(cleaned);
 
     // Enforce the score calculation server-side regardless of what Gemini returns
     parsed.score = Math.max(1, Math.min(10, Math.ceil(percentage / 10)));
@@ -158,7 +158,7 @@ const buildFallbackReport = ({ studentName, percentage, breakdown, categoryBreak
   const score = Math.max(1, Math.min(10, Math.ceil(percentage / 10)));
 
   // Separate PS and MCQ wrong questions
-  const psWrong  = wrongQuestions.filter((q) => q.category === 'Problem Solving');
+  const psWrong = wrongQuestions.filter((q) => q.category === 'Problem Solving');
   const mcqWrong = wrongQuestions.filter((q) => q.category !== 'Problem Solving');
 
   const weakCats = [...categoryBreakdown]
@@ -174,7 +174,7 @@ const buildFallbackReport = ({ studentName, percentage, breakdown, categoryBreak
   const level = percentage >= 80 ? 'excellent' : percentage >= 60 ? 'good' : percentage >= 40 ? 'average' : 'needs improvement';
 
   // Build PS-specific feedback for fallback
-  const psWithAnswers  = psWrong.filter((q) => q.writtenDescription);
+  const psWithAnswers = psWrong.filter((q) => q.writtenDescription);
   const psWithoutAnswers = psWrong.filter((q) => !q.writtenDescription);
 
   const strengthsList = strongCats.length > 0
@@ -195,13 +195,12 @@ const buildFallbackReport = ({ studentName, percentage, breakdown, categoryBreak
 
   return {
     score,
-    feedback: `${studentName || 'You'} scored ${percentage}% (${score}/10) — a ${level} performance. ${
-      percentage >= 70
+    feedback: `${studentName || 'You'} scored ${percentage}% (${score}/10) — a ${level} performance. ${percentage >= 70
         ? 'Solid foundation across MERN stack topics. Focus on hard questions to push further.'
         : percentage >= 40
-        ? 'Shows understanding of core concepts but gaps remain in advanced topics.'
-        : 'Significant improvement needed. Revisit fundamentals and build progressively.'
-    }${psWithAnswers.length > 0 ? ` Written answers were provided for ${psWithAnswers.length} Problem Solving question(s) and will be reviewed by the teacher.` : ''}${violation ? ' Note: A proctoring violation was recorded during this attempt.' : ''}`,
+          ? 'Shows understanding of core concepts but gaps remain in advanced topics.'
+          : 'Significant improvement needed. Revisit fundamentals and build progressively.'
+      }${psWithAnswers.length > 0 ? ` Written answers were provided for ${psWithAnswers.length} Problem Solving question(s) and will be reviewed by the teacher.` : ''}${violation ? ' Note: A proctoring violation was recorded during this attempt.' : ''}`,
     strengths: strengthsList,
     weaknesses: weaknessesList,
     areasToImprove: weakCats.length > 0
@@ -219,18 +218,16 @@ const buildFallbackReport = ({ studentName, percentage, breakdown, categoryBreak
       `Study authentication flows — JWT, refresh tokens, and secure cookie handling`,
       `Take mock assessments weekly and review wrong answers immediately after`,
     ],
-    overallFeedback: `Overall performance: ${percentage}% with a score of ${score}/10. ${
-      breakdown.hard.total > 0
-        ? `Hard questions: ${breakdown.hard.correct}/${breakdown.hard.total} correct — ${
-            breakdown.hard.correct === 0
-              ? 'no hard questions answered correctly, indicating gaps in advanced concepts.'
-              : 'some hard questions handled well.'
-          }`
+    overallFeedback: `Overall performance: ${percentage}% with a score of ${score}/10. ${breakdown.hard.total > 0
+        ? `Hard questions: ${breakdown.hard.correct}/${breakdown.hard.total} correct — ${breakdown.hard.correct === 0
+          ? 'no hard questions answered correctly, indicating gaps in advanced concepts.'
+          : 'some hard questions handled well.'
+        }`
         : ''
-    } ${psWrong.length > 0
+      } ${psWrong.length > 0
         ? `Problem Solving questions (${psWrong.length} total): ${psWithAnswers.length} answered with written explanations, ${psWithoutAnswers.length} left blank. These are reviewed manually by the teacher.`
         : ''
-    } Focus on ${weakCats.slice(0, 2).join(' and ') || 'all categories'} for the greatest improvement.`,
+      } Focus on ${weakCats.slice(0, 2).join(' and ') || 'all categories'} for the greatest improvement.`,
     nextSteps: [
       `Review wrong answers and their explanations in the Answer Review section`,
       `Study ${weakCats[0] || 'MongoDB and React'} — focus on official docs and hands-on practice`,

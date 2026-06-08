@@ -1,5 +1,5 @@
-﻿import express from 'express';
-import { startQuiz, submitQuiz, getAttempts, getAttemptById, abandonQuiz } from '../controllers/quizController.js';
+import express from 'express';
+import { startQuiz, submitQuiz, getAttempts, getAttemptById, abandonQuiz, saveProgress } from '../controllers/quizController.js';
 import { protect } from '../middleware/auth.js';
 import { quizLimiter } from '../middleware/rateLimiter.js';
 
@@ -9,6 +9,7 @@ router.use(protect);
 
 router.post('/start', quizLimiter, startQuiz);
 router.post('/submit/:attemptId', submitQuiz);
+router.post('/save-progress/:attemptId', saveProgress);
 router.get('/attempts', getAttempts);
 router.get('/attempts/:id', getAttemptById);
 router.patch('/attempts/:id/abandon', abandonQuiz);

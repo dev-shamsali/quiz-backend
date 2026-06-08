@@ -1,4 +1,4 @@
-﻿import Question from '../models/Question.js';
+import Question from '../models/Question.js';
 import User from '../models/User.js';
 import QuizAttempt from '../models/QuizAttempt.js';
 import Settings from '../models/Settings.js';
@@ -36,7 +36,7 @@ const createQuestion = asyncHandler(async (req, res) => {
 
 const updateQuestion = asyncHandler(async (req, res, next) => {
   const question = await Question.findByIdAndUpdate(req.params.id, req.body, {
-    new: true, runValidators: true,
+    returnDocument: 'after', runValidators: true,
   });
   if (!question) return next(new ApiError('Question not found', 404));
   sendResponse(res, 200, 'Question updated', { question });
@@ -44,7 +44,7 @@ const updateQuestion = asyncHandler(async (req, res, next) => {
 
 const deleteQuestion = asyncHandler(async (req, res, next) => {
   const question = await Question.findByIdAndUpdate(
-    req.params.id, { isActive: false }, { new: true }
+    req.params.id, { isActive: false }, { returnDocument: 'after' }
   );
   if (!question) return next(new ApiError('Question not found', 404));
   sendResponse(res, 200, 'Question deactivated');
@@ -79,8 +79,28 @@ const getStudents = asyncHandler(async (req, res) => {
     User.countDocuments({ role: 'student' }),
   ]);
 
+  const studentIds = students.map((s) => s._id);
+  const activeAttempts = await QuizAttempt.find({
+    student: { $in: studentIds },
+    status: { $in: ['in-progress', 'suspended'] },
+  }).lean();
+
+  const studentsWithAttempt = students.map((student) => {
+    const attempt = activeAttempts.find((a) => a.student.toString() === student._id.toString());
+    return {
+      ...student,
+      activeAttempt: attempt
+        ? {
+            _id: attempt._id,
+            status: attempt.status,
+            adminAllowedResume: attempt.adminAllowedResume || false,
+          }
+        : null,
+    };
+  });
+
   sendResponse(res, 200, 'Students retrieved', {
-    students,
+    students: studentsWithAttempt,
     pagination: { page, limit, total, pages: Math.ceil(total / limit) },
   });
 });
@@ -189,5 +209,34 @@ const updateSettings = asyncHandler(async (req, res) => {
   sendResponse(res, 200, 'Settings updated', { settings });
 });
 
-export { getQuestions, createQuestion, updateQuestion, deleteQuestion, getQuestionStats, getStudents, getStudentDetail, getAnalytics, getRankings, getSettings, updateSettings };
+const toggleResumeAttempt = asyncHandler(async (req, res, next) => {
+  const attempt = await QuizAttempt.findById(req.params.id);
+  if (!attempt) return next(new ApiError('Attempt not found', 404));
+
+  if (attempt.status === 'completed' || attempt.status === 'abandoned') {
+    return next(new ApiError('Completed or submitted tests cannot be resumed', 400));
+  }
+
+  attempt.adminAllowedResume = !attempt.adminAllowedResume;
+  await attempt.save();
+
+  sendResponse(res, 200, `Resume ${attempt.adminAllowedResume ? 'allowed' : 'revoked'}`, { attempt });
+});
+
+const forceSuspendAttempt = asyncHandler(async (req, res, next) => {
+  const attempt = await QuizAttempt.findById(req.params.id);
+  if (!attempt) return next(new ApiError('Attempt not found', 404));
+
+  if (attempt.status !== 'in-progress') {
+    return next(new ApiError('Only in-progress attempts can be suspended', 400));
+  }
+
+  attempt.status = 'suspended';
+  attempt.adminAllowedResume = false;
+  await attempt.save();
+
+  sendResponse(res, 200, 'Attempt suspended successfully', { attempt });
+});
+
+export { getQuestions, createQuestion, updateQuestion, deleteQuestion, getQuestionStats, getStudents, getStudentDetail, getAnalytics, getRankings, getSettings, updateSettings, toggleResumeAttempt, forceSuspendAttempt };
 

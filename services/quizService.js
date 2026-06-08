@@ -1,18 +1,28 @@
+import mongoose from 'mongoose';
 import Question from '../models/Question.js';
 
 export const SECTION_CONFIG = [
-  { id: 'react-next',  label: 'React.js + Next.js',                  categories: ['React.js', 'Next.js'],                               durationMinutes: 30, questionCount: 60  },
-  { id: 'node',        label: 'Node.js',                              categories: ['Node.js'],                                           durationMinutes: 30, questionCount: 60  },
-  { id: 'express',     label: 'Express.js',                           categories: ['Express.js'],                                        durationMinutes: 30, questionCount: 60  },
-  { id: 'mongodb',     label: 'MongoDB',                              categories: ['MongoDB'],                                           durationMinutes: 30, questionCount: 60  },
-  { id: 'auth-ps-dbg', label: 'Auth + Problem Solving + Debugging',  categories: ['Authentication & Security', 'Problem Solving', 'Debugging'], durationMinutes: 60, questionCount: 60 },
+  { id: 'react-next',   label: 'React & Next JS',                     categories: ['React.js', 'Next.js'],                               durationMinutes: 36, questionCount: 40 },
+  { id: 'nodejs',       label: 'NodeJS',                              categories: ['Node.js'],                                           durationMinutes: 36, questionCount: 40 },
+  { id: 'express',      label: 'Express JS',                          categories: ['Express.js'],                                        durationMinutes: 36, questionCount: 40 },
+  { id: 'mongodb',      label: 'MongoDB',                             categories: ['MongoDB'],                                           durationMinutes: 36, questionCount: 40 },
+  { id: 'iq-based',     label: 'Logical Reasoning & IQ',               categories: ['Logical Reasoning', 'IQ'],                           durationMinutes: 36, questionCount: 40 },
 ];
 
 export const TOTAL_DURATION_MINUTES = SECTION_CONFIG.reduce((s, c) => s + c.durationMinutes, 0); // 180
-export const TOTAL_QUESTIONS        = SECTION_CONFIG.reduce((s, c) => s + c.questionCount,   0); // 300
+export const TOTAL_QUESTIONS        = SECTION_CONFIG.reduce((s, c) => s + c.questionCount,   0); // 200
 
 const QUIZ_CONFIG   = { easy: 13, moderate: 7, hard: 5 };
 const PS_GUARANTEED = 3;
+
+// Fisher-Yates shuffle helper
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
 
 // Helper to sample distinct questions from DB with a fallback in case we run out of unique questions
 const sampleQuestions = async (matchFilters, count, currentSelectionIds = []) => {
@@ -40,45 +50,104 @@ const sampleQuestions = async (matchFilters, count, currentSelectionIds = []) =>
 };
 
 // ── getRandomQuestions ────────────────────────────────────────────────────
-export const getRandomQuestions = async (excludeIds = []) => {
-  const excluded = [...excludeIds].map(id => id.toString());
+export const getRandomQuestions = async (excludeIds = [], userId = null) => {
+  // Find questions currently in-progress by other students to prevent concurrent collisions
+  const QuizAttempt = (await import('../models/QuizAttempt.js')).default;
+  const activeAttempts = await QuizAttempt.find({
+    status: 'in-progress',
+    student: { $ne: userId }
+  }, { 'questions.question': 1 }).lean();
+
+  const activeQuestionIds = [];
+  activeAttempts.forEach(attempt => {
+    (attempt.questions || []).forEach(q => {
+      if (q.question) {
+        activeQuestionIds.push(q.question.toString());
+      }
+    });
+  });
+
+  // Combine seenIds and activeQuestionIds, then cast to ObjectId
+  let excluded = [
+    ...excludeIds.map(id => id.toString()),
+    ...activeQuestionIds
+  ];
+  excluded = [...new Set(excluded)].map(id => new mongoose.Types.ObjectId(id));
+
   const selectedQuestions = [];
   const currentSelectionIds = [];
 
   const addQuestions = (qs, sectionIndex) => {
-    qs.forEach(q => {
+    const shuffled = shuffleArray([...qs]);
+    shuffled.forEach(q => {
       q._sectionIndex = sectionIndex;
       selectedQuestions.push(q);
-      excluded.push(q._id.toString());
-      currentSelectionIds.push(q._id.toString());
+      excluded.push(new mongoose.Types.ObjectId(q._id.toString()));
+      currentSelectionIds.push(new mongoose.Types.ObjectId(q._id.toString()));
     });
   };
 
-  // Section 1: React.js + Next.js (30 React.js + 30 Next.js)
-  const s1React = await sampleQuestions({ _id: { $nin: excluded }, category: 'React.js', type: { $ne: 'problem-solving' } }, 30, currentSelectionIds);
-  const s1Next  = await sampleQuestions({ _id: { $nin: excluded }, category: 'Next.js', type: { $ne: 'problem-solving' } }, 30, currentSelectionIds);
-  addQuestions([...s1React, ...s1Next], 0);
+  // Helper to ensure enough unseen questions in a category, else reset
+  const verifyAndResetCategory = async (category, countNeeded) => {
+    const totalCount = await Question.countDocuments({ isActive: true, category });
+    const seenCount = await Question.countDocuments({
+      isActive: true,
+      category,
+      _id: { $in: excluded }
+    });
 
-  // Section 2: Node.js (60 Node.js)
-  const s2Node  = await sampleQuestions({ _id: { $nin: excluded }, category: 'Node.js', type: { $ne: 'problem-solving' } }, 60, currentSelectionIds);
-  addQuestions(s2Node, 1);
+    const unseenCount = totalCount - seenCount;
 
-  // Section 3: Express.js (60 Express.js)
-  const s3Express = await sampleQuestions({ _id: { $nin: excluded }, category: 'Express.js', type: { $ne: 'problem-solving' } }, 60, currentSelectionIds);
-  addQuestions(s3Express, 2);
+    if (unseenCount < countNeeded) {
+      console.log(`[Reset] Category ${category}: unseen: ${unseenCount}, required: ${countNeeded}. Resetting seen list.`);
+      const seenQuestionsInCat = await Question.find({ category }, { _id: 1 }).lean();
+      const seenIdsInCat = seenQuestionsInCat.map(q => q._id.toString());
 
-  // Section 4: MongoDB (60 MongoDB)
-  const s4Mongodb = await sampleQuestions({ _id: { $nin: excluded }, category: 'MongoDB', type: { $ne: 'problem-solving' } }, 60, currentSelectionIds);
-  addQuestions(s4Mongodb, 3);
+      excluded = excluded.filter(id => !seenIdsInCat.includes(id.toString()));
 
-  // Section 5: Auth + PS + Debugging (10 PS + 25 Debugging + 25 Authentication & Security)
-  const s5Ps    = await sampleQuestions({ _id: { $nin: excluded }, category: 'Problem Solving' }, 10, currentSelectionIds);
-  const s5Dbg   = await sampleQuestions({ _id: { $nin: excluded }, category: 'Debugging', type: { $ne: 'problem-solving' } }, 25, currentSelectionIds);
-  const s5Auth  = await sampleQuestions({ _id: { $nin: excluded }, category: 'Authentication & Security', type: { $ne: 'problem-solving' } }, 25, currentSelectionIds);
-  addQuestions([...s5Ps, ...s5Dbg, ...s5Auth], 4);
+      if (userId) {
+        const User = (await import('../models/User.js')).default;
+        const studentSeenIdsInCat = seenIdsInCat.filter(id => excludeIds.map(x => x.toString()).includes(id));
+        if (studentSeenIdsInCat.length > 0) {
+          await User.findByIdAndUpdate(userId, {
+            $pull: { seenQuestions: { $in: studentSeenIdsInCat } }
+          });
+        }
+      }
+    }
+  };
 
-  if (selectedQuestions.length < 300) {
-    throw new Error('Insufficient questions in the database. Please run the seed script.');
+  // Section 1: React & Next JS (40 total: 20 React.js + 20 Next.js)
+  await verifyAndResetCategory('React.js', 20);
+  await verifyAndResetCategory('Next.js', 20);
+  const s1_react = await sampleQuestions({ _id: { $nin: excluded }, category: 'React.js' }, 20, currentSelectionIds);
+  const s1_next  = await sampleQuestions({ _id: { $nin: excluded }, category: 'Next.js' }, 20, currentSelectionIds);
+  addQuestions([...s1_react, ...s1_next], 0);
+
+  // Section 2: NodeJS (40)
+  await verifyAndResetCategory('Node.js', 40);
+  const s2 = await sampleQuestions({ _id: { $nin: excluded }, category: 'Node.js' }, 40, currentSelectionIds);
+  addQuestions(s2, 1);
+
+  // Section 3: Express JS (40)
+  await verifyAndResetCategory('Express.js', 40);
+  const s3 = await sampleQuestions({ _id: { $nin: excluded }, category: 'Express.js' }, 40, currentSelectionIds);
+  addQuestions(s3, 2);
+
+  // Section 4: MongoDB (40)
+  await verifyAndResetCategory('MongoDB', 40);
+  const s4 = await sampleQuestions({ _id: { $nin: excluded }, category: 'MongoDB' }, 40, currentSelectionIds);
+  addQuestions(s4, 3);
+
+  // Section 5: Logical Reasoning & IQ (40 total: 20 Logical Reasoning + 20 IQ)
+  await verifyAndResetCategory('Logical Reasoning', 20);
+  await verifyAndResetCategory('IQ', 20);
+  const s5_lr = await sampleQuestions({ _id: { $nin: excluded }, category: 'Logical Reasoning' }, 20, currentSelectionIds);
+  const s5_iq = await sampleQuestions({ _id: { $nin: excluded }, category: 'IQ' }, 20, currentSelectionIds);
+  addQuestions([...s5_lr, ...s5_iq], 4);
+
+  if (selectedQuestions.length === 0) {
+    throw new Error('No active questions found in the database. Please add questions first.');
   }
 
   // Sort by section index so questions are served strictly in section order
