@@ -12,7 +12,6 @@ import routes from './routes/index.js';
 import activityLogRoutes from './routes/activitylogRoutes.js';
 import errorHandler from './middleware/errorHandler.js';
 import sanitizeRequest from './middleware/sanitize.js';
-import { generalLimiter } from './middleware/rateLimiter.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -27,10 +26,10 @@ app.use(helmet({
 }));
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: (origin, callback) => callback(null, true),
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-session-id'],
 }));
 
 app.use(express.json({ limit: '1mb' }));
@@ -43,8 +42,6 @@ app.use(compression());
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
-
-app.use('/api', generalLimiter);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
