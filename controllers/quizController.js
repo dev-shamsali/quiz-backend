@@ -6,7 +6,7 @@ import { getRandomQuestions, getAnswerMap, calculateResults, SECTION_CONFIG, TOT
 import { gradePSAnswers } from '../services/Geminigrading.js';
 import ApiError from '../utils/ApiError.js';
 import { sendResponse, asyncHandler } from '../utils/ApiResponse.js';
-import ActivityLog from '../models/ActivityLog.js';
+import ActivityLog from '../models/Activitylog.js';
 
 const TOTAL_DURATION_SECONDS = TOTAL_DURATION_MINUTES * 60;
 
