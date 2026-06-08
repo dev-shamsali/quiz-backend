@@ -1,4 +1,4 @@
-import ActivityLog from '../models/ActivityLog.js';
+import ActivityLog from '../models/Activitylog.js';
 import ApiError from '../utils/ApiError.js';
 import { sendResponse, asyncHandler } from '../utils/ApiResponse.js';
 
