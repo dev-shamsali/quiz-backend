@@ -9,7 +9,7 @@ import hpp from 'hpp';
 
 import connectDB from './config/db.js';
 import routes from './routes/index.js';
-import activityLogRoutes from './routes/activityLogRoutes.js';
+import activityLogRoutes from './routes/activitylogRoutes.js';
 import errorHandler from './middleware/errorHandler.js';
 import sanitizeRequest from './middleware/sanitize.js';
 import { generalLimiter } from './middleware/rateLimiter.js';

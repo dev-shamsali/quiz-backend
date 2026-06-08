@@ -15,7 +15,7 @@ const logEvent = asyncHandler(async (req, res) => {
   await ActivityLog.pushEvent(sessionId, {
     event,
     reason: reason || '',
-    meta:   meta   || {},
+    meta: meta || {},
     attempt: attemptId || null,
   });
 
@@ -26,9 +26,9 @@ const logEvent = asyncHandler(async (req, res) => {
 const getAllLogs = asyncHandler(async (req, res, next) => {
   if (req.user.role !== 'admin') return next(new ApiError('Admin access required', 403));
 
-  const page  = parseInt(req.query.page)  || 1;
+  const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 50;
-  const skip  = (page - 1) * limit;
+  const skip = (page - 1) * limit;
   const { studentId, event } = req.query;
 
   // Filter by student
@@ -59,9 +59,9 @@ const getStudentLogs = asyncHandler(async (req, res, next) => {
   if (req.user.role !== 'admin') return next(new ApiError('Admin access required', 403));
 
   const { studentId } = req.params;
-  const page  = parseInt(req.query.page)  || 1;
+  const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 50;
-  const skip  = (page - 1) * limit;
+  const skip = (page - 1) * limit;
 
   const [logs, total] = await Promise.all([
     ActivityLog.find({ student: studentId })
