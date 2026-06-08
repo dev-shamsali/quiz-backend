@@ -3,7 +3,7 @@ import Question from '../models/Question.js';
 import User from '../models/User.js';
 import Settings from '../models/Settings.js';
 import { getRandomQuestions, getAnswerMap, calculateResults, SECTION_CONFIG, TOTAL_DURATION_MINUTES } from '../services/quizService.js';
-import { gradePSAnswers } from '../services/geminiGrading.js';
+import { gradePSAnswers } from '../services/Geminigrading.js';
 import ApiError from '../utils/ApiError.js';
 import { sendResponse, asyncHandler } from '../utils/ApiResponse.js';
 import ActivityLog from '../models/ActivityLog.js';
