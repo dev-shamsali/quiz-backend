@@ -116,14 +116,14 @@ Return format:
 }
 
 async function run() {
-  console.log('🚀 Connecting to MongoDB...');
+  // console.log('🚀 Connecting to MongoDB...');
   await mongoose.connect(process.env.MONGODB_URI);
-  console.log('✓ Connected to MongoDB');
+  // console.log('✓ Connected to MongoDB');
 
-  console.log('Fetching existing question signatures...');
+  // console.log('Fetching existing question signatures...');
   const existingDocs = await Question.find({}, { question: 1 }).lean();
   const seenSignatures = new Set(existingDocs.map(d => d.question.trim().toLowerCase()));
-  console.log(`Loaded ${seenSignatures.size} existing questions to prevent duplicates.\n`);
+  // console.log(`Loaded ${seenSignatures.size} existing questions to prevent duplicates.\n`);
 
   // Target: 45 questions per subtopic (15 easy, 15 moderate, 15 hard)
   const targets = [
@@ -135,13 +135,13 @@ async function run() {
   let totalInserted = 0;
 
   for (const t of targets) {
-    console.log(`\n=== Generating Questions for Category: ${t.category} ===`);
+    // console.log(`\n=== Generating Questions for Category: ${t.category} ===`);
     for (const subtopic of t.subtopics) {
-      console.log(`\n📖 Subtopic: "${subtopic}"`);
+      // console.log(`\n📖 Subtopic: "${subtopic}"`);
       
       for (const difficulty of difficulties) {
         const count = 15; // Generate 15 questions per difficulty/subtopic combination
-        console.log(`   Generating ${count} ${difficulty} questions...`);
+        // console.log(`   Generating ${count} ${difficulty} questions...`);
         
         try {
           const batch = await generateSubtopicBatch(t.category, subtopic, difficulty, count, seenSignatures);
@@ -189,9 +189,9 @@ async function run() {
             if (docs.length > 0) {
               await Question.insertMany(docs, { ordered: false });
               totalInserted += docs.length;
-              console.log(`   ✓ Successfully inserted ${docs.length} unique questions.`);
+              // console.log(`   ✓ Successfully inserted ${docs.length} unique questions.`);
             } else {
-              console.log(`   ⚠️ No new unique questions generated in this batch.`);
+              // console.log(`   ⚠️ No new unique questions generated in this batch.`);
             }
           } else {
             console.error(`   ❌ Failed to receive a valid JSON array for this batch.`);
@@ -207,9 +207,9 @@ async function run() {
   }
 
   const finalCount = await Question.countDocuments({ isActive: true });
-  console.log('\n🎉 ALL REACTOR & NEXT.JS QUESTIONS SEEDED SUCCESSFULLY!');
-  console.log(`Total questions added during this run: ${totalInserted}`);
-  console.log(`Total active questions now in DB: ${finalCount}`);
+  // console.log('\n🎉 ALL REACTOR & NEXT.JS QUESTIONS SEEDED SUCCESSFULLY!');
+  // console.log(`Total questions added during this run: ${totalInserted}`);
+  // console.log(`Total active questions now in DB: ${finalCount}`);
 
   await mongoose.disconnect();
   process.exit(0);

@@ -57,7 +57,7 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 const server = app.listen(PORT, () => {
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
+  // console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });
 
 process.on('unhandledRejection', (err) => {
@@ -66,5 +66,7 @@ process.on('unhandledRejection', (err) => {
 });
 
 process.on('SIGTERM', () => {
-  server.close(() => console.log('Process terminated'));
+  server.close(() => {
+    // console.log('Process terminated');
+  });
 });

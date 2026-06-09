@@ -29,7 +29,7 @@ const sampleQuestions = async (matchFilters, count, currentSelectionIds = []) =>
   if (count <= 0) return [];
   
   let docs = await Question.aggregate([
-    { $match: { ...matchFilters, isActive: true } },
+    { $match: { ...matchFilters, type: { $ne: 'problem-solving' }, isActive: true } },
     { $sample: { size: count } },
     { $project: { correctAnswer: 0, explanation: 0, __v: 0 } },
   ]);
@@ -40,7 +40,7 @@ const sampleQuestions = async (matchFilters, count, currentSelectionIds = []) =>
     fallbackFilters._id = { $nin: currentSelectionIds };
     
     docs = await Question.aggregate([
-      { $match: { ...fallbackFilters, isActive: true } },
+      { $match: { ...fallbackFilters, type: { $ne: 'problem-solving' }, isActive: true } },
       { $sample: { size: count } },
       { $project: { correctAnswer: 0, explanation: 0, __v: 0 } },
     ]);
@@ -99,7 +99,7 @@ export const getRandomQuestions = async (excludeIds = [], userId = null) => {
     const unseenCount = totalCount - seenCount;
 
     if (unseenCount < countNeeded) {
-      console.log(`[Reset] Category ${category}: unseen: ${unseenCount}, required: ${countNeeded}. Resetting seen list.`);
+      // console.log(`[Reset] Category ${category}: unseen: ${unseenCount}, required: ${countNeeded}. Resetting seen list.`);
       const seenQuestionsInCat = await Question.find({ category }, { _id: 1 }).lean();
       const seenIdsInCat = seenQuestionsInCat.map(q => q._id.toString());
 

@@ -58,12 +58,12 @@ Respond with ONLY one word — either PASS or FAIL. No explanation, no punctuati
         ?.trim()
         ?.toUpperCase() || 'FAIL';
 
-    console.log(
-      `[PS Grading] Result: "${text}" | Answer: "${studentAnswer.slice(
-        0,
-        60
-      )}..."`
-    );
+    // console.log(
+    //   `[PS Grading] Result: "${text}" | Answer: "${studentAnswer.slice(
+    //     0,
+    //     60
+    //   )}..."`
+    // );
 
     return text.startsWith('PASS');
   } catch (err) {
@@ -91,9 +91,9 @@ export const gradePSAnswers = async (results, answerMap) => {
     const writtenAnswer = (r.description || '').trim();
 
     if (!writtenAnswer) {
-      console.log(
-        `[PS Grading] Skipping empty answer for question ${qId}`
-      );
+      // console.log(
+      //   `[PS Grading] Skipping empty answer for question ${qId}`
+      // );
 
       return {
         ...r,

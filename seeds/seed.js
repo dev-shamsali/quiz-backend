@@ -44,7 +44,7 @@ const connectDB = async () => {
     maxPoolSize: 5,
     serverSelectionTimeoutMS: 10000,
   });
-  console.log('MongoDB Connected for seeding...');
+  // console.log('MongoDB Connected for seeding...');
 };
 
 const seedQuestions = async () => {
@@ -91,19 +91,19 @@ const seedQuestions = async () => {
     });
   }
 
-  console.log(`\n Combined questions:  ${combinedQuestions.length}`);
-  console.log(` Valid unique:        ${fixed.length}`);
-  console.log(`  Duplicates removed: ${dupes}`);
-  console.log(`  Invalid/skipped:    ${invalid}\n`);
+  // console.log(`\n Combined questions:  ${combinedQuestions.length}`);
+  // console.log(` Valid unique:        ${fixed.length}`);
+  // console.log(`  Duplicates removed: ${dupes}`);
+  // console.log(`  Invalid/skipped:    ${invalid}\n`);
 
   // ── Clear + insert ────────────────────────────────────────────────────────
   await Question.deleteMany({});
-  console.log('Cleared existing questions');
+  // console.log('Cleared existing questions');
 
   const BATCH = 500;
   for (let i = 0; i < fixed.length; i += BATCH) {
     await Question.insertMany(fixed.slice(i, i + BATCH), { ordered: false });
-    console.log(`   Inserted ${Math.min(i + BATCH, fixed.length)} / ${fixed.length}...`);
+    // console.log(`   Inserted ${Math.min(i + BATCH, fixed.length)} / ${fixed.length}...`);
   }
 
   // ── Verify ────────────────────────────────────────────────────────────────
@@ -112,23 +112,23 @@ const seedQuestions = async () => {
     Question.countDocuments({ isActive: true, difficulty: 'moderate' }),
     Question.countDocuments({ isActive: true, difficulty: 'hard' }),
   ]);
-  console.log(`\n✅ Inserted — Easy: ${easy} | Moderate: ${moderate} | Hard: ${hard}`);
+  // console.log(`\n✅ Inserted — Easy: ${easy} | Moderate: ${moderate} | Hard: ${hard}`);
 
   const [ps, lr, iq] = await Promise.all([
     Question.countDocuments({ isActive: true, category: 'Problem Solving' }),
     Question.countDocuments({ isActive: true, category: 'Logical Reasoning' }),
     Question.countDocuments({ isActive: true, category: 'IQ' }),
   ]);
-  console.log(`   Problem Solving: ${ps}`);
-  console.log(`   Logical Reasoning: ${lr} | IQ: ${iq}`);
+  // console.log(`   Problem Solving: ${ps}`);
+  // console.log(`   Logical Reasoning: ${lr} | IQ: ${iq}`);
 
   // ── Quiz readiness check ──────────────────────────────────────────────────
-  console.log('\n🔍 Quiz readiness:');
-  console.log(`   Need 13 easy    → ${easy   >= 13 ? '✓' : '✗ NOT ENOUGH'} (have ${easy})`);
-  console.log(`   Need 7 moderate → ${moderate >= 7 ? '✓' : '✗ NOT ENOUGH'} (have ${moderate})`);
-  console.log(`   Need 5 hard     → ${hard   >= 5  ? '✓' : '✗ NOT ENOUGH'} (have ${hard})`);
-  console.log(`   Need 3 PS       → ${ps     >= 3  ? '✓' : '✗ NOT ENOUGH'} (have ${ps})`);
-  console.log(`   Logical Reasoning & IQ (Need 40) → ${lr + iq >= 40 ? '✓' : '✗ NOT ENOUGH'} (have ${lr + iq})`);
+  // console.log('\n🔍 Quiz readiness:');
+  // console.log(`   Need 13 easy    → ${easy   >= 13 ? '✓' : '✗ NOT ENOUGH'} (have ${easy})`);
+  // console.log(`   Need 7 moderate → ${moderate >= 7 ? '✓' : '✗ NOT ENOUGH'} (have ${moderate})`);
+  // console.log(`   Need 5 hard     → ${hard   >= 5  ? '✓' : '✗ NOT ENOUGH'} (have ${hard})`);
+  // console.log(`   Need 3 PS       → ${ps     >= 3  ? '✓' : '✗ NOT ENOUGH'} (have ${ps})`);
+  // console.log(`   Logical Reasoning & IQ (Need 40) → ${lr + iq >= 40 ? '✓' : '✗ NOT ENOUGH'} (have ${lr + iq})`);
 
   // ── Admin user ────────────────────────────────────────────────────────────
   const adminExists = await User.findOne({ email: 'admin@devquiz.com' });
@@ -139,13 +139,13 @@ const seedQuestions = async () => {
       password: 'Admin@123',
       role: 'admin',
     });
-    console.log('\n Admin user created: admin@devquiz.com / Admin@123');
+    // console.log('\n Admin user created: admin@devquiz.com / Admin@123');
   } else {
-    console.log('\n Admin user already exists');
+    // console.log('\n Admin user already exists');
   }
 
   await mongoose.connection.close();
-  console.log('\n🎉 Seeding complete! Your quiz will now serve questions automatically.');
+  // console.log('\n🎉 Seeding complete! Your quiz will now serve questions automatically.');
   process.exit(0);
 };
 

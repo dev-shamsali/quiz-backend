@@ -17,6 +17,18 @@ const startQuiz = asyncHandler(async (req, res, next) => {
     return next(new ApiError('Quiz is not currently open. Please wait for the administrator to open the quiz.', 403));
   }
 
+  // Enforce scheduled date (must be today)
+  if (settings.quizDateTime) {
+    const today = new Date();
+    const quizDate = new Date(settings.quizDateTime);
+    const isSameDay = quizDate.getDate() === today.getDate() &&
+                      quizDate.getMonth() === today.getMonth() &&
+                      quizDate.getFullYear() === today.getFullYear();
+    if (!isSameDay) {
+      return next(new ApiError('Quiz is not scheduled for today. You can only start the quiz on its scheduled date.', 403));
+    }
+  }
+
   // ── Resume in-progress or suspended attempt ─────────────────────────────
   const activeAttempt = await QuizAttempt.findOne({
     student: req.user._id,
@@ -170,7 +182,7 @@ const submitQuiz = asyncHandler(async (req, res, next) => {
   });
 
   if (psResults.length > 0) {
-    console.log(`Grading ${psResults.length} PS answer(s) with Gemini...`);
+    // console.log(`Grading ${psResults.length} PS answer(s) with Gemini...`);
     const { updatedResults, psCorrectCount } = await gradePSAnswers(results, answerMap);
     results        = updatedResults;
     correctAnswers += psCorrectCount;
@@ -190,7 +202,7 @@ const submitQuiz = asyncHandler(async (req, res, next) => {
       if (catEntry) catEntry.correct++;
     });
 
-    console.log(`PS grading complete. ${psCorrectCount} PS answer(s) marked correct.`);
+    // console.log(`PS grading complete. ${psCorrectCount} PS answer(s) marked correct.`);
   }
 
   const totalQ     = attempt.questions.length || 300;

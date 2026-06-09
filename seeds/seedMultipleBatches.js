@@ -37,7 +37,7 @@ const connectDB = async () => {
     maxPoolSize: 5,
     serverSelectionTimeoutMS: 10000,
   });
-  console.log('✓ MongoDB Connected for batch seeding...');
+  // console.log('✓ MongoDB Connected for batch seeding...');
 };
 
 const seedMultipleBatches = async () => {
@@ -45,10 +45,10 @@ const seedMultipleBatches = async () => {
   await connectDB();
 
   // 1. Fetch all existing question texts to prevent duplicates
-  console.log('Fetching existing questions from database...');
+  // console.log('Fetching existing questions from database...');
   const existingQuestions = await Question.find({}, { question: 1 }).lean();
   const seenKeys = new Set(existingQuestions.map((q) => q.question.trim().toLowerCase()));
-  console.log(`Loaded ${seenKeys.size} existing question signatures from database.`);
+  // console.log(`Loaded ${seenKeys.size} existing question signatures from database.`);
 
   // 2. Read all files in seeds/batches
   let files;
@@ -62,12 +62,12 @@ const seedMultipleBatches = async () => {
 
   const jsonFiles = files.filter((f) => f.endsWith('.json'));
   if (jsonFiles.length === 0) {
-    console.log(`No .json files found in ${batchesDir}. Place your topic JSON files there and run again.`);
+    // console.log(`No .json files found in ${batchesDir}. Place your topic JSON files there and run again.`);
     await mongoose.connection.close();
     process.exit(0);
   }
 
-  console.log(`Found ${jsonFiles.length} JSON batch files to process: ${jsonFiles.join(', ')}`);
+  // console.log(`Found ${jsonFiles.length} JSON batch files to process: ${jsonFiles.join(', ')}`);
 
   const toInsert = [];
   let duplicateCount = 0;
@@ -76,7 +76,7 @@ const seedMultipleBatches = async () => {
 
   for (const file of jsonFiles) {
     const filePath = join(batchesDir, file);
-    console.log(`\nProcessing file: ${file}...`);
+    // console.log(`\nProcessing file: ${file}...`);
 
     try {
       const data = await fs.readFile(filePath, 'utf8');
@@ -88,7 +88,7 @@ const seedMultipleBatches = async () => {
         continue;
       }
 
-      console.log(`- Read ${questionsList.length} questions from ${file}`);
+      // console.log(`- Read ${questionsList.length} questions from ${file}`);
 
       for (let idx = 0; idx < questionsList.length; idx++) {
         const q = questionsList[idx];
@@ -175,16 +175,16 @@ const seedMultipleBatches = async () => {
   }
 
   // 3. Batch insert questions
-  console.log(`\n--- Seeding Summary ---`);
-  console.log(`Questions to insert:  ${toInsert.length}`);
-  console.log(`Duplicates skipped:   ${duplicateCount}`);
-  console.log(`Invalid items skipped: ${invalidCount}`);
+  // console.log(`\n--- Seeding Summary ---`);
+  // console.log(`Questions to insert:  ${toInsert.length}`);
+  // console.log(`Duplicates skipped:   ${duplicateCount}`);
+  // console.log(`Invalid items skipped: ${invalidCount}`);
   if (fileErrorCount > 0) {
-    console.log(`Files with errors:     ${fileErrorCount}`);
+    // console.log(`Files with errors:     ${fileErrorCount}`);
   }
 
   if (toInsert.length > 0) {
-    console.log(`Inserting ${toInsert.length} questions into MongoDB...`);
+    // console.log(`Inserting ${toInsert.length} questions into MongoDB...`);
     const BATCH_SIZE = 500;
     let inserted = 0;
 
@@ -192,12 +192,12 @@ const seedMultipleBatches = async () => {
       const batch = toInsert.slice(i, i + BATCH_SIZE);
       await Question.insertMany(batch, { ordered: false });
       inserted += batch.length;
-      console.log(`   Inserted ${inserted} / ${toInsert.length}...`);
+      // console.log(`   Inserted ${inserted} / ${toInsert.length}...`);
     }
 
-    console.log('✓ Seeding complete!');
+    // console.log('✓ Seeding complete!');
   } else {
-    console.log('No new unique questions to insert.');
+    // console.log('No new unique questions to insert.');
   }
 
   // 4. Print final counts in DB
@@ -207,7 +207,7 @@ const seedMultipleBatches = async () => {
     Question.countDocuments({ isActive: true, difficulty: 'hard' }),
   ]);
   const total = easy + moderate + hard;
-  console.log(`\nDatabase Status — Total Questions: ${total} (Easy: ${easy} | Moderate: ${moderate} | Hard: ${hard})`);
+  // console.log(`\nDatabase Status — Total Questions: ${total} (Easy: ${easy} | Moderate: ${moderate} | Hard: ${hard})`);
 
   await mongoose.connection.close();
   process.exit(0);

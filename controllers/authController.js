@@ -54,7 +54,7 @@ const register = asyncHandler(async (req, res, next) => {
   const user = await User.create({ name, email, password, role: 'student' });
 
   // Send credentials via email (non-blocking)
-  console.log(`[DEV ONLY] Registered student ${email} with password: ${password}`);
+  // console.log(`[DEV ONLY] Registered student ${email} with password: ${password}`);
   sendCredentials({ name, email, password }).catch((err) => {
     console.error('Failed to send credentials email:', err.message);
   });
