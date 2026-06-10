@@ -1,4 +1,4 @@
-﻿// 150 Questions: 75 Easy | 60 Moderate | 15 Hard
+// 150 Questions: 75 Easy | 60 Moderate | 15 Hard
 // Categories: React.js, Next.js, Node.js, Express.js, MongoDB, Authentication & Security, Problem Solving, Debugging
 
 const questions = [
@@ -709,24 +709,6 @@ const questions = [
 
   // --- React.js Moderate (8) ---
   {
-    question: "You have a parent component that re-renders frequently. A child component receives a callback as a prop and is wrapped in React.memo. However, the child still re-renders. Why?",
-    options: ["React.memo doesn't work with callbacks", "A new function reference is created on every parent render, so memo sees it as a changed prop", "The child component has a bug", "React.memo requires class components"],
-    correctAnswer: "A new function reference is created on every parent render, so memo sees it as a changed prop",
-    explanation: "Functions in JavaScript are created anew on each render. Even if the logic is identical, the reference changes. Use useCallback to memoize callbacks passed to memoized children.",
-    difficulty: "moderate", category: "React.js", technology: "React", type: "problem-solving",
-    tags: ["memo", "useCallback", "performance", "re-renders"], estimatedTime: 60,
-    realWorldUseCase: "Optimizing a quiz component that receives handlers from a parent container."
-  },
-  {
-    question: "What is the difference between useMemo and useCallback?",
-    options: ["They are identical hooks", "useMemo memoizes a computed value; useCallback memoizes a function reference", "useCallback memoizes values; useMemo memoizes functions", "useMemo is for async operations"],
-    correctAnswer: "useMemo memoizes a computed value; useCallback memoizes a function reference",
-    explanation: "useMemo(() => expensiveCalc(data), [data]) caches the result. useCallback(() => handler, [deps]) caches the function itself. Both re-compute when dependencies change.",
-    difficulty: "moderate", category: "React.js", technology: "React", type: "mcq",
-    tags: ["useMemo", "useCallback", "optimization"], estimatedTime: 50,
-    realWorldUseCase: "Memoizing expensive score calculations and stable event handlers."
-  },
-  {
     question: "How does React Context API differ from prop drilling, and when should you avoid Context?",
     options: ["Context is always better than props", "Context provides global state without prop drilling; avoid it for frequently changing state as it re-renders all consumers", "Context only works with class components", "Context replaces Redux entirely in all cases"],
     correctAnswer: "Context provides global state without prop drilling; avoid it for frequently changing state as it re-renders all consumers",
@@ -1230,16 +1212,6 @@ const questions = [
     realWorldUseCase: "API returning 404 when a valid attempt ID is passed from the frontend."
   },
   {
-    question: "This Redux action dispatches but the component doesn't update. What's the likely bug?\n\nconst slice = createSlice({\n  initialState: { user: null },\n  reducers: {\n    setUser: (state, action) => {\n      state = { ...state, user: action.payload };\n    }\n  }\n});",
-    options: ["createSlice is wrong", "The reducer reassigns 'state' directly instead of mutating it â€” Immer (used by Redux Toolkit) requires mutation or returning new state", "action.payload is wrong", "initialState format is invalid"],
-    correctAnswer: "The reducer reassigns 'state' directly instead of mutating it â€” Immer (used by Redux Toolkit) requires mutation or returning new state",
-    explanation: "In Redux Toolkit, you either mutate state directly (state.user = action.payload) or return a new object. Reassigning the state parameter itself doesn't work.",
-    difficulty: "moderate", category: "Debugging", technology: "React", type: "debugging",
-    codeSnippet: "setUser: (state, action) => {\n  state = { ...state, user: action.payload };\n}",
-    tags: ["Redux", "Immer", "reducer"], estimatedTime: 60,
-    realWorldUseCase: "Redux state not updating after a successful login action."
-  },
-  {
     question: "Your API returns correct data in Postman but the frontend gets a CORS error. What is the specific issue?",
     options: ["The API is broken", "Postman doesn't enforce CORS; the browser does. Your Express server is not sending the correct Access-Control-Allow-Origin header", "The frontend URL is wrong", "JSON is not properly formatted"],
     correctAnswer: "Postman doesn't enforce CORS; the browser does. Your Express server is not sending the correct Access-Control-Allow-Origin header",
@@ -1273,15 +1245,6 @@ const questions = [
   // ============================================================
 
   // --- React.js Hard (2) ---
-  {
-    question: "You are building a quiz component that needs to prevent re-renders for 25 question cards while the parent timer updates every second. Describe the complete optimization strategy.",
-    options: ["Use React.lazy for each card", "Wrap QuestionCard in React.memo, memoize callback handlers with useCallback, and isolate timer state so it doesn't cause parent re-render that flows to cards", "Use class components for all cards", "Use useDeferredValue on the timer"],
-    correctAnswer: "Wrap QuestionCard in React.memo, memoize callback handlers with useCallback, and isolate timer state so it doesn't cause parent re-render that flows to cards",
-    explanation: "React.memo prevents re-renders if props are shallowly equal. useCallback ensures callback references are stable. Moving timer state to a separate TimerComponent (sibling, not parent of cards) prevents unnecessary prop changes to QuestionCards.",
-    difficulty: "hard", category: "React.js", technology: "React", type: "scenario",
-    tags: ["optimization", "memo", "useCallback", "performance"], estimatedTime: 120,
-    realWorldUseCase: "Quiz interface where timer runs independently without causing 25 question cards to re-render every second."
-  },
   {
     question: "Implement a React hook that syncs state to localStorage and handles SSR (where localStorage is unavailable). What edge cases must you handle?",
     options: ["Just wrap useState and add localStorage.setItem", "Handle: SSR (typeof window check), JSON parse errors for corrupted storage, cross-tab synchronization via storage event, and initial hydration mismatch", "Use useEffect to sync after mount only", "Use Next.js cookies instead"],
@@ -1406,20 +1369,6 @@ const questions = [
   },
 
   // --- React.js Hard (extra to reach 15 total hard) ---
-  {
-    question: "You need to build a quiz platform where 50 students open the same quiz page simultaneously. The state architecture must handle: live question navigation, answer selections, a countdown timer, and submit â€” all without performance degradation. What is the optimal React state architecture?",
-    options: [
-      "Use a single large useState object for all quiz state",
-      "Combine Redux for shared server-synced state (attemptId, questions), useReducer for quiz flow (currentIndex, answers), and a dedicated isolated Timer component with its own useRef/setInterval to avoid triggering parent re-renders",
-      "Use React Context for all state and re-render on every tick",
-      "Use localStorage as the primary state store"
-    ],
-    correctAnswer: "Combine Redux for shared server-synced state (attemptId, questions), useReducer for quiz flow (currentIndex, answers), and a dedicated isolated Timer component with its own useRef/setInterval to avoid triggering parent re-renders",
-    explanation: "State colocation is key: Redux for data that needs persistence (attemptId, questions from API). useReducer for complex local transitions (answer selection, navigation). Timer lives in its own isolated component so its state updates (every second) don't cascade into re-rendering all 25 question cards.",
-    difficulty: "hard", category: "React.js", technology: "React", type: "scenario",
-    tags: ["state-architecture", "performance", "Redux", "useReducer", "timer"], estimatedTime: 120,
-    realWorldUseCase: "Designing the state layer of a concurrent quiz platform for 50 students."
-  },
   {
     question: "A Next.js application fetches quiz questions on the server and renders them. After deployment, you notice the build-time rendered questions are stale â€” new questions added in the admin panel don't appear for hours. Students in different regions get different data. What architectural changes are needed?",
     options: [
